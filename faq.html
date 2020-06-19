@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <title>Title</title>
+        <meta charset="utf-8" />
+        <meta name="description" content="Description" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="./css/libs.css" />
+        <link rel="stylesheet" href="./css/app.css" />
+        <script src="./js/libs.js" defer="defer"></script>
+        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js" defer="defer"></script>
+        <script src="./js/app.js" defer="defer"></script>
+    </head>
+    <body>
+        <div class="page">
+            <!-- header-->
+            <header class="header">
+                <div class="header__wrapper">
+                    <div class="container">
+                        <div class="header__inner">
+                            <button class="navbar-toggle d-xl-none js-navbar-open"><i class="fa fa-bars"></i></button><a class="logo" href="./index.html"><img src="./images/logo.png" alt="" /></a>
+                            <section class="navbar js-navbar">
+                                <div class="navbar__backdrop js-navbar-close"></div>
+                                <div class="navbar__wrapper">
+                                    <div class="navbar__header">
+                                        <button class="navbar-toggle js-navbar-close"><i class="fa fa-bars"></i></button><a class="logo" href="./index.html"><img src="./images/logo.png" alt="" /></a>
+                                    </div>
+                                    <div class="navbar__body">
+                                        <ul class="menu menu-root">
+                                            <li class="menu-item menu-item-group"><a class="menu-link" href="./about.html">Giới thiệu</a><span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                <ul class="menu menu-sub">
+                                                    <li class="menu-item"><a class="menu-link" href="#!">Dropdown</a>
+                                                    </li>
+                                                    <li class="menu-item"><a class="menu-link" href="#!">Dropdown</a>
+                                                    </li>
+                                                    <li class="menu-item"><a class="menu-link" href="#!">Dropdown</a>
+                                                    </li>
+                                                    <li class="menu-item menu-item-group"><a class="menu-link" href="#!">Dropdown</a><span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                        <ul class="menu menu-sub menu-sub-2">
+                                                            <li class="menu-item"><a class="menu-link" href="#!">Dropdown</a></li>
+                                                            <li class="menu-item"><a class="menu-link" href="#!">Dropdown</a></li>
+                                                            <li class="menu-item"><a class="menu-link" href="#!">Dropdown</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item"><a class="menu-link" href="./products.html">Sản phẩm</a>
+                                            </li>
+                                            <li class="menu-item"><a class="menu-link" href="./news.html">Kiến thức</a>
+                                            </li>
+                                            <li class="menu-item menu-item-group"><a class="menu-link" href="#!">Hỗ trợ</a><span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                <ul class="menu menu-sub">
+                                                    <li class="menu-item"><a class="menu-link" href="#!">Dropdown</a>
+                                                    </li>
+                                                    <li class="menu-item"><a class="menu-link" href="#!">Dropdown</a>
+                                                    </li>
+                                                    <li class="menu-item"><a class="menu-link" href="#!">Dropdown</a>
+                                                    </li>
+                                                    <li class="menu-item menu-item-group"><a class="menu-link" href="#!">Dropdown</a><span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                        <ul class="menu menu-sub menu-sub-2">
+                                                            <li class="menu-item"><a class="menu-link" href="#!">Dropdown</a></li>
+                                                            <li class="menu-item"><a class="menu-link" href="#!">Dropdown</a></li>
+                                                            <li class="menu-item"><a class="menu-link" href="#!">Dropdown</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+                            <div class="header__elements"><a class="header__btn" href="#!">Đăng nhập</a><a class="header__btn" href="#!">Mở tài khoản</a></div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="page__content">
+                <!-- main content-->
+                <!-- Banner-->
+                <section class="banner"><img class="banner__bg" src="./images/banner-faq.jpg" alt="">
+                    <div class="container">
+                        <h2 class="title"><small>CÁC CÂU HỎI</small><span>THƯỜNG GẶP</span></h2>
+                    </div>
+                </section>
+                <!-- FAQ Các câu hỏi thường gặp-->
+                <section class="faq">
+                    <div class="container">
+                        <div class="faq__row">
+                            <div class="faq__col">
+                                <ul class="nav faq__tabs">
+                                    <li class="nav-item faq__title">Đăng nhập</li>
+                                    <li class="nav-item"><a class="nav-link js-faq-tab active" href="#faq-tab-1" data-toggle="tab">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam?</a></li>
+                                    <li class="nav-item"><a class="nav-link js-faq-tab" href="#faq-tab-2" data-toggle="tab">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam?</a></li>
+                                    <li class="nav-item faq__title">Đăng nhập</li>
+                                    <li class="nav-item"><a class="nav-link js-faq-tab" href="#faq-tab-3" data-toggle="tab">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam?</a></li>
+                                    <li class="nav-item"><a class="nav-link js-faq-tab" href="#faq-tab-4" data-toggle="tab">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam?</a></li>
+                                    <li class="nav-item faq__title">Đăng nhập</li>
+                                    <li class="nav-item"><a class="nav-link js-faq-tab" href="#faq-tab-5" data-toggle="tab">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam?</a></li>
+                                    <li class="nav-item"><a class="nav-link js-faq-tab" href="#faq-tab-6" data-toggle="tab">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam?</a></li>
+                                </ul>
+                            </div>
+                            <div class="faq__col faq__answers">
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="faq-tab-1">
+                                        <div class="faq__title">Tôi có cần phải mở tài khoản mới để sử dụng BSC i-Invest tại BSC không?</div>
+                                        <div class="faq__content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="faq-tab-2">
+                                        <div class="faq__title">Tab 2 Tôi có cần phải mở tài khoản mới để sử dụng BSC i-Invest tại BSC không?</div>
+                                        <div class="faq__content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="faq-tab-3">
+                                        <div class="faq__title">Tab 3 Tôi có cần phải mở tài khoản mới để sử dụng BSC i-Invest tại BSC không?</div>
+                                        <div class="faq__content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="faq-tab-4">
+                                        <div class="faq__title">Tab 4 Tôi có cần phải mở tài khoản mới để sử dụng BSC i-Invest tại BSC không?</div>
+                                        <div class="faq__content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="faq-tab-5">
+                                        <div class="faq__title">Tab 5 Tôi có cần phải mở tài khoản mới để sử dụng BSC i-Invest tại BSC không?</div>
+                                        <div class="faq__content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="faq-tab-6">
+                                        <div class="faq__title">Tab 6 Tôi có cần phải mở tài khoản mới để sử dụng BSC i-Invest tại BSC không?</div>
+                                        <div class="faq__content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quisquam tempore dicta odio dignissimos, adipisci suscipit ad atque dolorem aut! Totam quibusdam cupiditate, atque tempore recusandae illum voluptatem pariatur quasi.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- footer-->
+            <footer class="footer">
+                <div class="bg-white">
+                    <div class="container">
+                        <div class="row align-items-center py-3">
+                            <div class="col-xl-6 py-3">
+                                <nav class="f-nav"><a class="f-nav__link" href="#!">Điều khoản sử dụng</a><a class="f-nav__link" href="#!">An toàn & bảo mật</a><a class="f-nav__link" href="#!">Sơ đồ trang</a><a class="f-nav__link" href="#!">Liên hệ</a></nav>
+                            </div>
+                            <div class="col-xl-6 py-3">
+                                <div class="footer__content">
+                                    <p>@ Bản quyền 2020 thuộc về Công ty Chứng khoán Ngân hàng TMCP Đầu tư và Phát triển Việt Nam (BSC)</p>
+                                    <p>Hội sở chính: Tháp BIDV, 35 Hàng Vôi, Hoàn Kiếm, Hà Nội.<br />ĐT: (024) 3935 2722 - Ext: 242/246/247/245/261/161<br />Email: iinvest@bsc.com.vn</p>
+                                    <p>Chi nhánh TP Hồ Chí Minh: Lầu 9, 146 Nguyễn Công Trứ, Quận I, TP. Hồ Chí Minh<br />ĐT: (028) 3821 8886<br />Email: iinvest@bsc.com.vn</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="endpage">
+                    <div class="container">
+                        <div class="endpage__inner"><a class="endpage__logo" href="#!"><img src="./images/logo-footer.png" alt="" /></a>
+                            <div class="endpage__text">@ 2020 Công ty Chứng khoán Ngân hàng TMCP Đầu tư và Phát triển Việt Nam</div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- modals + sticky widgets-->
+            <button class="btn btn-movetop"><i class="fa fa-arrow-up"></i></button>
+            <div class="md-video modal fade" tabindex="-1">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-body md-video__body">
+                            <button class="md-video__close" data-dismiss="modal"></button>
+                            <div class="embed-responsive embed-responsive-16by9"><iframe src='' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
