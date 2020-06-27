@@ -8,8 +8,10 @@
         <link rel="stylesheet" href="./css/libs.css" />
         <link rel="stylesheet" href="./css/app.css" />
         <script src="./js/libs.js" defer="defer"></script>
-        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js" defer="defer"></script>
+        <script src="./vendor/highchart/highcharts.js" defer></script>
+        <script src="./vendor/masonry/masonry.pkgd.min.js" defer="defer"></script>
         <script src="./js/app.js" defer="defer"></script>
+        <script src="./js/chart.js" defer="defer"></script>
     </head>
     <body>
         <div class="page">
@@ -152,7 +154,17 @@
                     <div class="container">
                         <h2 class="section-3__title">KHẨU VỊ RỦI RO ĐẦU TƯ</h2>
                         <div class="section-3__content">
-                            <p class="text-center"><img src="./images/risk-apetite.jpg" alt=""></p>
+                            <div class="row">
+                                <div class="col-md-4 mb-30">
+                                    <div id="huu-tri-bao-toan"></div>
+                                </div>
+                                <div class="col-md-4 mb-30">
+                                    <div id="huu-tri-can-bang"></div>
+                                </div>
+                                <div class="col-md-4 mb-30">
+                                    <div id="huu-tri-tang-truong"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -190,7 +202,7 @@
                 <section class="section-3">
                     <div class="container">
                         <div class="section-3__content mb-40">
-                            <p class="text-center"><img src="./images/save-chart.jpg" alt=""></p>
+                            <div id="ke-hoach-huu-tri"></div>
                         </div>
                         <div class="adjust-result media">
                             <div class="media-body">

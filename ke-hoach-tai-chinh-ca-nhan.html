@@ -8,8 +8,10 @@
         <link rel="stylesheet" href="./css/libs.css" />
         <link rel="stylesheet" href="./css/app.css" />
         <script src="./js/libs.js" defer="defer"></script>
-        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js" defer="defer"></script>
+        <script src="./vendor/highchart/highcharts.js" defer></script>
+        <script src="./vendor/masonry/masonry.pkgd.min.js" defer="defer"></script>
         <script src="./js/app.js" defer="defer"></script>
+        <script src="./js/chart.js" defer="defer"></script>
     </head>
     <body>
         <div class="page">
@@ -85,7 +87,9 @@
                     <div class="container">
                         <h2 class="section-3__title">PHÂN BỔ CHI TIÊU HÀNG THÁNG</h2>
                         <div class="section-3__content">
-                            <p class="text-center"><img src="./images/pie-chart.jpg" alt=""></p>
+                            <div class="chart-ke-hoach-tai-chinh-ca-nhan">
+                                <div id="ke-hoach-tai-chinh-ca-nhan"></div>
+                            </div>
                         </div>
                     </div>
                 </section>

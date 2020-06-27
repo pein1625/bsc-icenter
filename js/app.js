@@ -87,6 +87,8 @@ $(function () {
   addSwiper(".banner-slider", {
     effect: "fade",
     speed: 1000,
+    pagination: true,
+    loop: true,
     autoplay: {
       delay: 4000,
       disableOnInteraction: false

@@ -8,8 +8,10 @@
         <link rel="stylesheet" href="./css/libs.css" />
         <link rel="stylesheet" href="./css/app.css" />
         <script src="./js/libs.js" defer="defer"></script>
-        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js" defer="defer"></script>
+        <script src="./vendor/highchart/highcharts.js" defer></script>
+        <script src="./vendor/masonry/masonry.pkgd.min.js" defer="defer"></script>
         <script src="./js/app.js" defer="defer"></script>
+        <script src="./js/chart.js" defer="defer"></script>
     </head>
     <body>
         <div class="page">
@@ -76,32 +78,47 @@
             </header>
             <div class="page__content">
                 <!-- main content-->
-                <!-- Banner-->
-                <section class="banner">
-                    <div class="banner-slider">
-                        <div class="banner-slider__pagination"></div>
-                        <div class="banner-slider__container swiper-container">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="banner-slider__frame"><img src="./images/banner-bg.jpg" alt="" /></div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="banner-slider__frame"><img src="./images/banner-blog.jpg" alt="" /></div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="banner-slider__frame"><img src="./images/banner-news.jpg" alt="" /></div>
-                                </div>
+                <!-- Banner slider-->
+                <div class="banner-slider">
+                    <div class="banner-slider__pagination"></div>
+                    <div class="banner-slider__container swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <section class="banner"><img class="banner__bg" src="./images/banner-bg.jpg" alt="" />
+                                    <div class="container">
+                                        <h2 class="title"><small>GIỚI THIỆU VỀ</small><span>BSC i-Center</span></h2>
+                                        <div class="banner__desc">
+                                            <p>Trung tâm tư vấn đầu tư BSC i-Center cung cấp tất cả các sản phẩm đầu tư từ chứng khoán cơ sở</p>
+                                        </div>
+                                        <div class="banner__btns"><a class="button" href="./gioi-thieu.html"><img src="./images/icon-check-circle-white.png" alt="" />Tìm hiểu thêm</a></div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="swiper-slide">
+                                <section class="banner"><img class="banner__bg" src="./images/banner-blog.jpg" alt="" />
+                                    <div class="container">
+                                        <h2 class="title"><small>BLOG</small><span>BSC i-Center</span></h2>
+                                        <div class="banner__desc">
+                                            <p>Trung tâm tư vấn đầu tư BSC i-Center cung cấp tất cả các sản phẩm đầu tư từ chứng khoán cơ sở, chứng khoán phái sinh, trái phiếu, ủy thác đầu tư tới các sản phảm đầu tư áp dụng công nghệ, hỗ trợ nhà đầu tư phân bổ tài sản hợp lý và tiết kiệm thời gian đầu tư.</p>
+                                        </div>
+                                        <div class="banner__btns"><a class="button" href="./gioi-thieu.html"><img src="./images/icon-check-circle-white.png" alt="" />Tìm hiểu thêm</a></div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="swiper-slide">
+                                <section class="banner"><img class="banner__bg" src="./images/banner-news.jpg" alt="" />
+                                    <div class="container">
+                                        <h2 class="title"><small>TIN TỨC</small><span>BSC i-Center</span></h2>
+                                        <div class="banner__desc">
+                                            <p>Trung tâm tư vấn đầu tư BSC i-Center cung cấp tất cả các sản phẩm đầu tư từ chứng khoán cơ sở, chứng khoán phái sinh, trái phiếu, ủy thác đầu tư tới các sản phảm đầu tư áp dụng công nghệ</p>
+                                        </div>
+                                        <div class="banner__btns"><a class="button" href="./gioi-thieu.html"><img src="./images/icon-check-circle-white.png" alt="" />Tìm hiểu thêm</a></div>
+                                    </div>
+                                </section>
                             </div>
                         </div>
                     </div>
-                    <div class="container">
-                        <h2 class="title"><small>GIỚI THIỆU VỀ</small><span>BSC i-Center</span></h2>
-                        <div class="banner__desc">
-                            <p>Trung tâm tư vấn đầu tư BSC i-Center cung cấp tất cả các sản phẩm đầu tư từ chứng khoán cơ sở, chứng khoán phái sinh, trái phiếu, ủy thác đầu tư tới các sản phảm đầu tư áp dụng công nghệ, hỗ trợ nhà đầu tư phân bổ tài sản hợp lý và tiết kiệm thời gian đầu tư.</p>
-                        </div>
-                        <div class="banner__btns"><a class="button" href="./gioi-thieu.html"><img src="./images/icon-check-circle-white.png" alt="">Tìm hiểu thêm</a></div>
-                    </div>
-                </section>
+                </div>
                 <!-- Intro-->
                 <section class="intro-2">
                     <div class="container">BSC i-Center luôn đồng hành cùng nhà đầu tư trong hành trình kiến tạo nền tảng tài chính vững chắc cho tương lai</div>
