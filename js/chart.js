@@ -64,24 +64,22 @@ $(function () {
       innerSize: "80%",
       data: [{
         name: "Chi phí hàng tháng",
-        y: 15
-        // sliced: true,
-        // selected: true,
+        y: 1240
       }, {
         name: "Quỹ đầu tư",
-        y: 30
+        y: 200
       }, {
         name: "Quỹ tiết kiệm",
-        y: 27
+        y: 500
       }, {
         name: "Quỹ khẩn cấp",
-        y: 13
+        y: 60
       }, {
         name: "Quỹ bảo hiểm",
-        y: 15
+        y: 0
       }, {
         name: "Trả nợ",
-        y: 10
+        y: 0
       }]
     }]
   });

@@ -799,7 +799,7 @@ $(function () {
   });
 });
 
-// Kế hoạch hưu trí
+// Kế hoạch tiết kiệm
 const Saving = function () {
   const SavingClass = function () {};
 
@@ -951,3 +951,210 @@ $(function () {
 });
 
 // Kế hoạch tài chính cá nhân
+
+const PersonalFinancial = function () {
+  const PersonalFinancialClass = function () {};
+
+  // Thu nhập (Nghìn VND)
+  PersonalFinancialClass.prototype.totalIncome = 2000;
+  PersonalFinancialClass.prototype.salary = 2000;
+  PersonalFinancialClass.prototype.commission = 0;
+  PersonalFinancialClass.prototype.bonus = 0;
+  PersonalFinancialClass.prototype.fixedAssetsIncome = 0;
+  PersonalFinancialClass.prototype.propertySale = 0;
+  PersonalFinancialClass.prototype.otherIncome = 0;
+
+  // Tính tổng thu nhập (Nghìn VND)
+  PersonalFinancialClass.prototype.calcTotalIncome = function () {
+    this.totalIncome = this.salary + this.commission + this.bonus + this.fixedAssetsIncome + this.propertySale + this.otherIncome;
+
+    $(".js-total-income").val(this.totalIncome);
+  };
+
+  // Chi phí (Nghìn VND)
+  PersonalFinancialClass.prototype.totalExpenses = 1240;
+  PersonalFinancialClass.prototype.personalLivingExpenses = 500;
+  PersonalFinancialClass.prototype.travelExpenses = 40;
+  PersonalFinancialClass.prototype.foodExpenses = 360;
+  PersonalFinancialClass.prototype.relationshipsExpenses = 0;
+  PersonalFinancialClass.prototype.entertainmentExpenses = 50;
+  PersonalFinancialClass.prototype.beautyAndHealthExpenses = 50;
+  PersonalFinancialClass.prototype.educationExpenses = 50;
+  PersonalFinancialClass.prototype.otherExpenses = 50;
+
+  // Tính tổng chi phí (Nghìn VND)
+  PersonalFinancialClass.prototype.calcTotalExpenses = function () {
+    this.totalExpenses = this.personalLivingExpenses + this.travelExpenses + this.foodExpenses + this.relationshipsExpenses + this.entertainmentExpenses + this.beautyAndHealthExpenses + this.educationExpenses + this.otherExpenses;
+
+    $(".js-total-expenses").val(this.totalExpenses);
+  };
+
+  // Phân bổ đầu tư (Nghìn VND)
+  PersonalFinancialClass.prototype.totalSurplus = 760;
+  PersonalFinancialClass.prototype.investmentFund = 200;
+  PersonalFinancialClass.prototype.savingFund = 500;
+  PersonalFinancialClass.prototype.emergencyFund = 60;
+  PersonalFinancialClass.prototype.isuranceFund = 0;
+  PersonalFinancialClass.prototype.pay = 0;
+
+  // Tính tổng thặng dư
+  PersonalFinancialClass.prototype.calcTotalSurplus = function () {
+    this.totalSurplus = this.investmentFund + this.savingFund + this.emergencyFund + this.isuranceFund + this.pay;
+
+    let ratio = Math.round(this.totalSurplus * 1000 / this.totalIncome) / 10;
+
+    $(".js-total-surplus").val(this.totalSurplus.toLocaleString("en"));
+    $(".js-total-surplus").parent().siblings(":last-child").html(ratio + "%");
+  };
+
+  // Cập nhật kết quả
+  PersonalFinancialClass.prototype.updateResult = function () {
+    let result = `
+<div class="adjust-result__body bg-light">
+    <div class="adjust-result__label">KẾT QUẢ:</div>
+    <div class="adjust-result__content">
+        <div>Tài sản còn lại: <span class="text-danger font-weight-bold">${this.cashOnHand}</span> triệu</div>
+    </div>
+</div>`;
+
+    $(".js-planning-result").html(result);
+  };
+
+  // Cập nhật biểu đồ
+  PersonalFinancialClass.prototype.updateChart = function () {
+    // Số dư dự kiến
+    let surplus = [this.presentValue * 1000000];
+
+    // Tiền tiết kiệm hàng tháng
+    let monthlyPersonalFinancials = [0];
+
+    for (let month = 0; month < this.PersonalFinancialMonths; month++) {
+      surplus.push(this.getFutureValue(month + 1) * 1000000);
+      monthlyPersonalFinancials.push(this.getPersonalFinancialPerMonth() * 1000000);
+    }
+
+    if (!$("#ke-hoach-tai-chinh-ca-nhan")[0]) return;
+
+    debugger;
+
+    Highcharts.chart("ke-hoach-tai-chinh-ca-nhan", {
+      chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: "pie",
+        height: "100%"
+      },
+      title: {
+        text: ""
+      },
+      tooltip: {
+        pointFormat: "{point.percentage:.1f}%</b>"
+      },
+      accessibility: {
+        point: {
+          valueSuffix: "%"
+        }
+      },
+      legend: {
+        symbolRadius: 0,
+        symbolWidth: 35,
+        itemStyle: {
+          fontSize: legendFontSize,
+          fontWeight: legendFontWeight,
+          fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
+        }
+      },
+      plotOptions: {
+        pie: {
+          allowPointSelect: true,
+          cursor: "pointer",
+          dataLabels: {
+            enabled: true,
+            format: "{point.percentage:.1f} %",
+            style: {
+              fontSize: pieLabelFontSize,
+              fontWeight: "400",
+              fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
+            }
+          },
+          showInLegend: true
+        }
+      },
+      series: [{
+        name: "Brands",
+        colorByPoint: true,
+        innerSize: "80%",
+        data: [{
+          name: "Chi phí hàng tháng",
+          y: this.totalExpenses
+        }, {
+          name: "Quỹ đầu tư",
+          y: this.investmentFund
+        }, {
+          name: "Quỹ tiết kiệm",
+          y: this.savingFund
+        }, {
+          name: "Quỹ khẩn cấp",
+          y: this.emergencyFund
+        }, {
+          name: "Quỹ bảo hiểm",
+          y: this.isuranceFund
+        }, {
+          name: "Trả nợ",
+          y: this.pay
+        }]
+      }]
+    });
+  };
+
+  // Tính kết quả và ghi ra màn hình
+  PersonalFinancialClass.prototype.calcResult = function () {
+    let cashOnHand = Math.round(this.totalIncome - this.totalExpenses - this.totalSurplus) / 1000;
+
+    this.cashOnHand = cashOnHand === 0 ? (cashOnHand / 1000).toLocaleString("en") : cashOnHand;
+
+    this.updateChart();
+    this.updateResult();
+  };
+
+  return new PersonalFinancialClass();
+}();
+
+$(function () {
+  const $personalFinancialPlanning = $("#personal-financial-planning");
+
+  if ($personalFinancialPlanning.length === 0) return;
+
+  $(".js-planning-input").on("change", function () {
+    let value = $(this).val();
+    let role = $(this).data("role");
+
+    PersonalFinancial[role] = parseFloat(value);
+
+    if (role === "salary" || role === "commission" || role === "bonus" || role === "fixedAssetsIncome" || role === "propertySale" || role === "otherIncome") {
+      PersonalFinancial.calcTotalIncome();
+    }
+
+    if (role === "personalLivingExpenses" || role === "travelExpenses" || role === "foodExpenses" || role === "relationshipsExpenses" || role === "entertainmentExpenses" || role === "beautyAndHealthExpenses" || role === "educationExpenses" || role === "otherExpenses") {
+      PersonalFinancial.calcTotalExpenses();
+    }
+
+    if (role === "investmentFund" || role === "savingFund" || role === "emergencyFund" || role === "isuranceFund" || role === "pay") {
+      PersonalFinancial.calcTotalSurplus();
+    }
+
+    let ratio = Math.round(parseFloat(value) * 1000 / PersonalFinancial.totalIncome) / 10;
+    $(this).parent().siblings("[data-ratio]").html(ratio + "%");
+  });
+
+  $(".js-planning-submit").on("click", function (e) {
+    e.preventDefault();
+
+    PersonalFinancial.calcResult();
+
+    $("html, body").animate({
+      scrollTop: $(".js-planning-scroll-to").offset().top
+    }, 800);
+  });
+});
