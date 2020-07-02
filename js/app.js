@@ -590,8 +590,6 @@ $(function () {
   });
 });
 
-// Kế hoạch tài chính cá nhân
-
 // Kế hoạch đầu tư
 const Investment = function () {
   const InvestmentClass = function () {};
@@ -800,3 +798,156 @@ $(function () {
     }, 800);
   });
 });
+
+// Kế hoạch hưu trí
+const Saving = function () {
+  const SavingClass = function () {};
+
+  // Số tiền hiện có
+  SavingClass.prototype.presentValue = 50; // Millions VND
+
+  // Thời gian tiết kiệm dự kiến
+  SavingClass.prototype.savingMonths = 10;
+
+  // Lãi suất dự kiến
+  SavingClass.prototype.interestRate = 7; // %
+
+  // Số tiền mục tiêu
+  SavingClass.prototype.futureValue = 150; // Millions VND
+
+  // Tính số tiền phải bỏ ra hàng tháng
+  SavingClass.prototype.getSavingPerMonth = function () {
+    return -PMT(this.interestRate / 100 / 12, this.savingMonths, -this.presentValue, this.futureValue, 0);
+  };
+
+  // Tính số dư dự kiến
+  SavingClass.prototype.getFutureValue = function (nper = this.savingMonths) {
+    return -FV(this.interestRate / 100 / 12, nper, this.getSavingPerMonth(), this.presentValue);
+  };
+
+  // Cập nhật kết quả
+  SavingClass.prototype.updateResult = function () {
+    let result = `
+<div class="adjust-result__body">
+  <div class="adjust-result__label">KẾT QUẢ:</div>
+  <div class="adjust-result__content">
+      <div>Nếu tích lũy <span class="text-danger font-weight-bold">${this.savingPerMonth}</span> đồng/ tháng</div>
+      <div>Sau <span class="text-danger font-weight-bold">${this.savingMonths}</span> tháng bạn có <span class="text-danger font-weight-bold">${this.futureValue}</span> triệu để đáp ứng nhu cầu</div>
+  </div>
+</div>`;
+
+    $(".js-planning-result").html(result);
+  };
+
+  // Cập nhật biểu đồ
+  SavingClass.prototype.updateChart = function () {
+    // Số dư dự kiến
+    let surplus = [this.presentValue * 1000000];
+
+    // Tiền tiết kiệm hàng tháng
+    let monthlySavings = [0];
+
+    for (let month = 0; month < this.savingMonths; month++) {
+      surplus.push(this.getFutureValue(month + 1) * 1000000);
+      monthlySavings.push(this.getSavingPerMonth() * 1000000);
+    }
+
+    Highcharts.chart("ke-hoach-tiet-kiem", {
+      chart: {
+        type: "areaspline"
+      },
+      title: "",
+      yAxis: {
+        title: {
+          text: ""
+        },
+        labels: {
+          formatter: function () {
+            return this.value.toLocaleString("en");
+          },
+          style: {
+            fontSize: areaLabelFontSize,
+            fontWeight: "400",
+            fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
+          }
+        }
+      },
+      legend: {
+        symbolRadius: 0,
+        symbolWidth: 35,
+        itemStyle: {
+          fontSize: legendFontSize,
+          fontWeight: legendFontWeight,
+          fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
+        }
+      },
+      tooltip: {
+        pointFormat: "{series.name}:<br/> {point.y:,.0f} VND"
+      },
+      plotOptions: {
+        area: {
+          pointStart: 0,
+          marker: {
+            enabled: false,
+            symbol: "circle",
+            radius: 2,
+            states: {
+              hover: {
+                enabled: true
+              }
+            }
+          }
+        },
+        column: {
+          pointStart: 0
+        }
+      },
+      series: [{
+        type: "area",
+        color: "#ddd",
+        name: "Số dư dự kiến",
+        data: surplus
+      }, {
+        type: "column",
+        color: "#F5BE14",
+        name: "Tiền tích luỹ tháng",
+        data: monthlySavings
+      }]
+    });
+  };
+
+  // Tính kết quả và ghi ra màn hình
+  SavingClass.prototype.calcResult = function () {
+    this.savingPerMonth = Math.round(this.getSavingPerMonth() * 1000000).toLocaleString("en");
+
+    this.updateChart();
+    this.updateResult();
+  };
+
+  return new SavingClass();
+}();
+
+$(function () {
+  const $savingPlanning = $("#saving-planning");
+
+  if ($savingPlanning.length === 0) return;
+
+  $(".js-planning-input").on("change", function () {
+    let value = $(this).val();
+    let role = $(this).data("role");
+
+    Saving[role] = parseInt(value);
+  });
+
+  $(".js-planning-submit").on("click", function (e) {
+    e.preventDefault();
+
+    Saving.calcResult();
+
+    $("html, body").animate({
+      scrollTop: $(".js-planning-scroll-to").offset().top
+    }, 800);
+  });
+});
+
+// Kế hoạch tài chính cá nhân

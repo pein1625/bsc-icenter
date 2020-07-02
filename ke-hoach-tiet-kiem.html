@@ -78,127 +78,133 @@
             </header>
             <div class="page__content">
                 <!-- main content-->
-                <section class="section-2">
-                    <div class="container">
-                        <h1 class="section-2__title">Kế hoạch tiết kiệm</h1>
-                    </div>
-                </section>
-                <section class="section-3 bg-light">
-                    <div class="container">
-                        <h2 class="section-3__title">MỤC TIÊU TƯƠNG LAI CỦA BẠN</h2>
-                        <div class="procedure procedure--grid">
-                            <div class="procedure__col">
-                                <div class="procedure__item"><a class="procedure__icon" href="#!"><img src="./images/img-travel.png" alt=""></a>
-                                    <div class="procedure__title">Du lịch</div>
-                                </div>
-                            </div>
-                            <div class="procedure__col">
-                                <div class="procedure__item"><a class="procedure__icon" href="#!"><img src="./images/img-shopping.png" alt=""></a>
-                                    <div class="procedure__title">Mua sắm</div>
-                                </div>
-                            </div>
-                            <div class="procedure__col">
-                                <div class="procedure__item"><a class="procedure__icon" href="#!"><img src="./images/img-car.png" alt=""></a>
-                                    <div class="procedure__title">Phương tiện</div>
-                                </div>
-                            </div>
-                            <div class="procedure__col">
-                                <div class="procedure__item"><a class="procedure__icon" href="#!"><img src="./images/img-marriage.png" alt=""></a>
-                                    <div class="procedure__title">Hôn nhân</div>
-                                </div>
-                            </div>
-                            <div class="procedure__col">
-                                <div class="procedure__item"><a class="procedure__icon" href="#!"><img src="./images/img-graduation-cap.png" alt=""></a>
-                                    <div class="procedure__title">Giáo dục</div>
-                                </div>
-                            </div>
-                            <div class="procedure__col">
-                                <div class="procedure__item"><a class="procedure__icon" href="#!"><img src="./images/img-camera.png" alt=""></a>
-                                    <div class="procedure__title">Sở thích</div>
-                                </div>
-                            </div>
-                            <div class="procedure__col"></div>
+                <div id="saving-planning">
+                    <section class="section-2">
+                        <div class="container">
+                            <h1 class="section-2__title">Kế hoạch tiết kiệm</h1>
                         </div>
-                    </div>
-                </section>
-                <section class="section-3">
-                    <div class="container">
-                        <h2 class="section-3__title">TIẾT KIỆM HAY DU LỊCH TRONG TẦM TAY</h2>
-                        <div class="section-3__content">
-                            <div id="ke-hoach-tiet-kiem"></div>
-                        </div>
-                    </div>
-                </section>
-                <section class="section-3 bg-light">
-                    <div class="container">
-                        <div class="adjust">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <td width="1%">Số tiền hiện có</td>
-                                        <td>
-                                            <div class="media align-items-center">
-                                                <div class="media-body">
-                                                    <input class="adjust__input" type="range" min="0" max="100" step="1">
-                                                </div>
-                                                <div class="adjust__number">50</div>
-                                            </div>
-                                        </td>
-                                        <td width="1%">Triệu</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="1%">Thời gian tích luỹ</td>
-                                        <td>
-                                            <div class="media align-items-center">
-                                                <div class="media-body">
-                                                    <input class="adjust__input" type="range" min="0" max="20" step="1">
-                                                </div>
-                                                <div class="adjust__number">10</div>
-                                            </div>
-                                        </td>
-                                        <td width="1%">Tháng</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="1%">Số tiền mục tiêu</td>
-                                        <td>
-                                            <div class="media align-items-center">
-                                                <div class="media-body">
-                                                    <input class="adjust__input" type="range" min="0" max="300" step="1">
-                                                </div>
-                                                <div class="adjust__number">150</div>
-                                            </div>
-                                        </td>
-                                        <td width="1%">Triệu</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="1%">Lãi suất</td>
-                                        <td>
-                                            <div class="media align-items-center">
-                                                <div class="media-body">
-                                                    <input class="adjust__input" type="range" min="0" max="10" step="0.01">
-                                                </div>
-                                                <div class="adjust__number">5.00</div>
-                                            </div>
-                                        </td>
-                                        <td width="1%">%</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="adjust-result media">
-                            <div class="media-body">
-                                <div class="adjust-result__body">
-                                    <div class="adjust-result__label">KẾT QUẢ :</div>
-                                    <div class="adjust-result__content">
-                                        <div> Nếu tích lũy <span class="text-danger font-weight-bold">9.448.632</span> đồng/ tháng</div>
-                                        <div>Sau <span class="text-danger font-weight-bold">1</span> năm bạn có <span class="text-danger font-weight-bold">150</span> triệu để đáp ứng nhu cầu</div>
-                                    </div>
+                    </section>
+                    <section class="section-3 bg-light">
+                        <div class="container">
+                            <h2 class="section-3__title">MỤC TIÊU TƯƠNG LAI CỦA BẠN</h2>
+                            <div class="procedure procedure--grid">
+                                <div class="procedure__col">
+                                    <label class="procedure__item futureGoal">
+                                        <input type="radio" name="futureGoal">
+                                        <div class="procedure__icon"><img src="./images/img-travel.png" alt=""></div>
+                                        <div class="procedure__title">Du lịch</div>
+                                    </label>
                                 </div>
+                                <div class="procedure__col">
+                                    <label class="procedure__item futureGoal">
+                                        <input type="radio" name="futureGoal">
+                                        <div class="procedure__icon"><img src="./images/img-shopping.png" alt=""></div>
+                                        <div class="procedure__title">Mua sắm</div>
+                                    </label>
+                                </div>
+                                <div class="procedure__col">
+                                    <label class="procedure__item futureGoal">
+                                        <input type="radio" name="futureGoal">
+                                        <div class="procedure__icon"><img src="./images/img-car.png" alt=""></div>
+                                        <div class="procedure__title">Phương tiện</div>
+                                    </label>
+                                </div>
+                                <div class="procedure__col">
+                                    <label class="procedure__item futureGoal">
+                                        <input type="radio" name="futureGoal">
+                                        <div class="procedure__icon"><img src="./images/img-marriage.png" alt=""></div>
+                                        <div class="procedure__title">Hôn nhân</div>
+                                    </label>
+                                </div>
+                                <div class="procedure__col">
+                                    <label class="procedure__item futureGoal">
+                                        <input type="radio" name="futureGoal">
+                                        <div class="procedure__icon"><img src="./images/img-graduation-cap.png" alt=""></div>
+                                        <div class="procedure__title">Giáo dục</div>
+                                    </label>
+                                </div>
+                                <div class="procedure__col">
+                                    <label class="procedure__item futureGoal">
+                                        <input type="radio" name="futureGoal">
+                                        <div class="procedure__icon"><img src="./images/img-camera.png" alt=""></div>
+                                        <div class="procedure__title">Sở thích</div>
+                                    </label>
+                                </div>
+                                <div class="procedure__col"></div>
                             </div>
-                            <div class="adjust-btns"><a class="adjust-btns__btn adjust-btns__btn--block" href="#!">Thực hiện</a><a class="adjust-btns__btn mr-10" href="#!"><i class="fa fa-bookmark"></i>Lưu</a><a class="adjust-btns__btn" href="#!"><i class="fa fa-share-alt"></i>Chia sẻ</a></div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                    <section class="section-3 js-planning-scroll-to">
+                        <div class="container">
+                            <h2 class="section-3__title">TIẾT KIỆM HAY DU LỊCH TRONG TẦM TAY</h2>
+                            <div class="section-3__content">
+                                <div id="ke-hoach-tiet-kiem"></div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="section-3 bg-light">
+                        <div class="container">
+                            <div class="adjust">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td width="1%">Số tiền hiện có</td>
+                                            <td>
+                                                <div class="media align-items-center">
+                                                    <div class="media-body">
+                                                        <input class="adjust__input js-planning-input" type="range" min="10" max="500" step="5" value="50" data-role="presentValue">
+                                                    </div>
+                                                    <div class="adjust__number">50</div>
+                                                </div>
+                                            </td>
+                                            <td width="1%">Triệu</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="1%">Thời gian tích luỹ</td>
+                                            <td>
+                                                <div class="media align-items-center">
+                                                    <div class="media-body">
+                                                        <input class="adjust__input js-planning-input" type="range" min="1" max="120" step="1" value="10" data-role="savingMonths">
+                                                    </div>
+                                                    <div class="adjust__number">10</div>
+                                                </div>
+                                            </td>
+                                            <td width="1%">Tháng</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="1%">Số tiền mục tiêu</td>
+                                            <td>
+                                                <div class="media align-items-center">
+                                                    <div class="media-body">
+                                                        <input class="adjust__input js-planning-input" type="range" min="100" max="300" step="5" value="150" data-role="futureValue">
+                                                    </div>
+                                                    <div class="adjust__number">150</div>
+                                                </div>
+                                            </td>
+                                            <td width="1%">Triệu</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="1%">Lãi suất</td>
+                                            <td>
+                                                <div class="media align-items-center">
+                                                    <div class="media-body">
+                                                        <input class="adjust__input js-planning-input" type="range" min="0" max="25" step="0.05" value="7" data-role="interestRate">
+                                                    </div>
+                                                    <div class="adjust__number">7.00</div>
+                                                </div>
+                                            </td>
+                                            <td width="1%">%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="adjust-result media">
+                                <div class="media-body js-planning-result"></div>
+                                <div class="adjust-btns"><a class="adjust-btns__btn adjust-btns__btn--block js-planning-submit" href="#!">Thực hiện</a><a class="adjust-btns__btn mr-10" href="#!"><i class="fa fa-bookmark"></i>Lưu</a><a class="adjust-btns__btn" href="#!"><i class="fa fa-share-alt"></i>Chia sẻ</a></div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
             <!-- footer-->
             <footer class="footer">
