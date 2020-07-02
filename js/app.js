@@ -96,6 +96,19 @@ $(function () {
   });
 });
 
+// art slider
+$(function () {
+  addSwiper(".art-slider", {
+    navigation: true,
+    loop: true,
+    speed: 600,
+    autoHeight: true,
+    autoplay: {
+      delay: 4000
+    }
+  });
+});
+
 // PV(rate, nper, pmt, fv, type)
 
 function PV(rate, nper, pmt, fv, type) {
@@ -358,6 +371,16 @@ $(function () {
     var val = $(this).val();
     $(this).closest("tr").find(".adjust__number").html(val);
   });
+});
+
+$(function () {
+  if (sessionStorage.visited) {
+    return;
+  }
+
+  sessionStorage.visited = true;
+
+  $(".popup").modal("show");
 });
 
 // Kế hoạch hưu trí
@@ -1033,79 +1056,37 @@ const PersonalFinancial = function () {
       monthlyPersonalFinancials.push(this.getPersonalFinancialPerMonth() * 1000000);
     }
 
-    if (!$("#ke-hoach-tai-chinh-ca-nhan")[0]) return;
-
-    debugger;
-
-    Highcharts.chart("ke-hoach-tai-chinh-ca-nhan", {
-      chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: "pie",
-        height: "100%"
-      },
-      title: {
-        text: ""
-      },
-      tooltip: {
-        pointFormat: "{point.percentage:.1f}%</b>"
-      },
-      accessibility: {
-        point: {
-          valueSuffix: "%"
-        }
-      },
-      legend: {
-        symbolRadius: 0,
-        symbolWidth: 35,
-        itemStyle: {
-          fontSize: legendFontSize,
-          fontWeight: legendFontWeight,
-          fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
-        }
-      },
-      plotOptions: {
-        pie: {
-          allowPointSelect: true,
-          cursor: "pointer",
-          dataLabels: {
-            enabled: true,
-            format: "{point.percentage:.1f} %",
-            style: {
-              fontSize: pieLabelFontSize,
-              fontWeight: "400",
-              fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
-            }
-          },
-          showInLegend: true
-        }
-      },
-      series: [{
-        name: "Brands",
-        colorByPoint: true,
-        innerSize: "80%",
-        data: [{
-          name: "Chi phí hàng tháng",
-          y: this.totalExpenses
-        }, {
-          name: "Quỹ đầu tư",
-          y: this.investmentFund
-        }, {
-          name: "Quỹ tiết kiệm",
-          y: this.savingFund
-        }, {
-          name: "Quỹ khẩn cấp",
-          y: this.emergencyFund
-        }, {
-          name: "Quỹ bảo hiểm",
-          y: this.isuranceFund
-        }, {
-          name: "Trả nợ",
-          y: this.pay
-        }]
+    series = [{
+      name: "Brands",
+      innerSize: "80%",
+      data: [{
+        name: "CHI PHÍ HÀNG THÁNG",
+        color: "#E7E7E7",
+        y: this.totalExpenses
+      }, {
+        name: "QUỸ ĐẦU TƯ",
+        color: "#E2C5A1",
+        y: this.investmentFund
+      }, {
+        name: "QUỸ TIẾT KIỆM",
+        color: "#B29E46",
+        y: this.savingFund
+      }, {
+        name: "QUỸ KHẨN CẤP",
+        color: "#394C5F",
+        y: this.emergencyFund
+      }, {
+        name: "QUỸ BẢO HIỂM",
+        color: "#F7BB17",
+        y: this.isuranceFund
+      }, {
+        name: "TRẢ NỢ",
+        color: "#192852",
+        y: this.pay
       }]
-    });
+    }];
+
+    showPersonalFinancialChart(series);
   };
 
   // Tính kết quả và ghi ra màn hình
@@ -1158,3 +1139,111 @@ $(function () {
     }, 800);
   });
 });
+
+// INITIAL CHART
+// Kế hoạch tài chính cá nhân
+$(function () {
+  showPersonalFinancialChart();
+});
+
+function showPersonalFinancialChart(series) {
+  if (!$("#ke-hoach-tai-chinh-ca-nhan")[0]) return;
+
+  let vw = $(window).width();
+  let chartHeight = "50%";
+  let labelFontSize = "16px";
+  let legendFontSize = "20px";
+
+  if (vw < 1200) {
+    labelFontSize = "10px";
+    legendFontSize = "14px";
+  }
+
+  if (vw < 767) {
+    chartHeight = "80%";
+  }
+
+  if (vw < 575) {
+    chartHeight = "100%";
+    legendFontSize = "12px";
+  }
+
+  series = series || [{
+    name: "Brands",
+    colorByPoint: true,
+    innerSize: "80%",
+    data: [{
+      name: "CHI PHÍ HÀNG THÁNG",
+      color: "#E7E7E7",
+      y: 1240
+    }, {
+      name: "QUỸ ĐẦU TƯ",
+      color: "#E2C5A1",
+      y: 200
+    }, {
+      name: "QUỸ TIẾT KIỆM",
+      color: "#B29E46",
+      y: 500
+    }, {
+      name: "QUỸ KHẨN CẤP",
+      color: "#394C5F",
+      y: 60
+    }, {
+      name: "QUỸ BẢO HIỂM",
+      color: "#F7BB17",
+      y: 0
+    }, {
+      name: "TRẢ NỢ",
+      color: "#192852",
+      y: 0
+    }]
+  }];
+
+  Highcharts.chart("ke-hoach-tai-chinh-ca-nhan", {
+    chart: {
+      plotBackgroundColor: null,
+      plotBorderWidth: null,
+      plotShadow: false,
+      type: "pie",
+      height: chartHeight
+    },
+    title: {
+      text: ""
+    },
+    tooltip: {
+      pointFormat: "{point.percentage:.1f}%</b>"
+    },
+    accessibility: {
+      point: {
+        valueSuffix: "%"
+      }
+    },
+    legend: {
+      symbolRadius: 0,
+      symbolWidth: 35,
+      itemStyle: {
+        fontSize: legendFontSize,
+        fontWeight: legendFontWeight,
+        fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
+      }
+    },
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        cursor: "pointer",
+        dataLabels: {
+          enabled: true,
+          format: "{point.percentage:.1f} %",
+          style: {
+            fontSize: labelFontSize,
+            lineHeight: "1.5",
+            fontWeight: "400",
+            fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
+          }
+        },
+        showInLegend: true
+      }
+    },
+    series: series
+  });
+}

@@ -6,84 +6,8 @@ var areaLabelFontSize = "10px";
 if ($(window).width() > 1200) {
   legendFontSize = "20px";
   legendFontWeight = "400";
-  pieLabelFontSize = "16px";
   areaLabelFontSize = "18px";
 }
-
-// Kế hoạch tài chính cá nhân
-$(function () {
-  if (!$("#ke-hoach-tai-chinh-ca-nhan")[0]) return;
-
-  Highcharts.chart("ke-hoach-tai-chinh-ca-nhan", {
-    chart: {
-      plotBackgroundColor: null,
-      plotBorderWidth: null,
-      plotShadow: false,
-      type: "pie",
-      height: "100%"
-    },
-    title: {
-      text: ""
-    },
-    tooltip: {
-      pointFormat: "{point.percentage:.1f}%</b>"
-    },
-    accessibility: {
-      point: {
-        valueSuffix: "%"
-      }
-    },
-    legend: {
-      symbolRadius: 0,
-      symbolWidth: 35,
-      itemStyle: {
-        fontSize: legendFontSize,
-        fontWeight: legendFontWeight,
-        fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
-      }
-    },
-    plotOptions: {
-      pie: {
-        allowPointSelect: true,
-        cursor: "pointer",
-        dataLabels: {
-          enabled: true,
-          format: "{point.percentage:.1f} %",
-          style: {
-            fontSize: pieLabelFontSize,
-            fontWeight: "400",
-            fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
-          }
-        },
-        showInLegend: true
-      }
-    },
-    series: [{
-      name: "Brands",
-      colorByPoint: true,
-      innerSize: "80%",
-      data: [{
-        name: "Chi phí hàng tháng",
-        y: 1240
-      }, {
-        name: "Quỹ đầu tư",
-        y: 200
-      }, {
-        name: "Quỹ tiết kiệm",
-        y: 500
-      }, {
-        name: "Quỹ khẩn cấp",
-        y: 60
-      }, {
-        name: "Quỹ bảo hiểm",
-        y: 0
-      }, {
-        name: "Trả nợ",
-        y: 0
-      }]
-    }]
-  });
-});
 
 // Khẩu vị rủi do hưu trí -- tiết kiệm
 $(function () {
@@ -95,6 +19,7 @@ $(function () {
       plotBorderWidth: null,
       plotShadow: false,
       type: "pie",
+      width: "100%",
       height: "100%"
     },
     title: {
