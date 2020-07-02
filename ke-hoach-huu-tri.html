@@ -78,149 +78,171 @@
             </header>
             <div class="page__content">
                 <!-- main content-->
-                <section class="section-2">
-                    <div class="container">
-                        <h1 class="section-2__title">Kế hoạch hưu trí</h1>
-                    </div>
-                </section>
-                <section class="section-3 bg-light">
-                    <div class="container">
-                        <h2 class="section-3__title">Làm thế nào để giữ vững mức chi tiêu hằng tháng sau khi nghỉ hưu ?</h2>
-                        <div class="adjust-2">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <td>Số tuổi hiện tại</td>
-                                        <td width="1%">
-                                            <input class="form-control" type="text" value="35" data-number-input data-min="0">
-                                        </td>
-                                        <td width="1%">Tuổi</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Số tuổi nghỉ hưu</td>
-                                        <td width="1%">
-                                            <input class="form-control" type="text" value="35" data-number-input data-min="0">
-                                        </td>
-                                        <td width="1%">Tuổi</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Số năm nghỉ hưu</td>
-                                        <td width="1%">
-                                            <input class="form-control" type="text" value="35" data-number-input data-min="0">
-                                        </td>
-                                        <td width="1%">Năm</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Thu nhập hiện tại hàng tháng</td>
-                                        <td width="1%">
-                                            <input class="form-control" type="text" value="35" data-number-input data-min="0">
-                                        </td>
-                                        <td width="1%">Triệu</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Chi phí sinh hoạt hàng tháng</td>
-                                        <td width="1%">
-                                            <input class="form-control" type="text" value="35" data-number-input data-min="0">
-                                        </td>
-                                        <td width="1%">Tuổi</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Số tiền đầu tư ban đầu</td>
-                                        <td width="1%">
-                                            <input class="form-control" type="text" value="35" data-number-input data-min="0">
-                                        </td>
-                                        <td width="1%">Triệu</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Số năm đầu tư dự kiến trước khi nghỉ</td>
-                                        <td width="1%">
-                                            <input class="form-control" type="text" value="35" data-number-input data-min="0">
-                                        </td>
-                                        <td width="1%">Triệu</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lạm phát điều chỉnh</td>
-                                        <td width="1%">
-                                            <input class="form-control" type="text" value="35" data-number-input data-min="0">
-                                        </td>
-                                        <td width="1%">%</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                <div id="retirement-planning">
+                    <section class="section-2">
+                        <div class="container">
+                            <h1 class="section-2__title">Kế hoạch hưu trí</h1>
                         </div>
-                    </div>
-                </section>
-                <section class="section-3">
-                    <div class="container">
-                        <h2 class="section-3__title">KHẨU VỊ RỦI RO ĐẦU TƯ</h2>
-                        <div class="section-3__content">
-                            <div class="row">
-                                <div class="col-md-4 mb-30">
-                                    <div id="huu-tri-bao-toan"></div>
-                                </div>
-                                <div class="col-md-4 mb-30">
-                                    <div id="huu-tri-can-bang"></div>
-                                </div>
-                                <div class="col-md-4 mb-30">
-                                    <div id="huu-tri-tang-truong"></div>
-                                </div>
+                    </section>
+                    <section class="section-3 bg-light">
+                        <div class="container">
+                            <h2 class="section-3__title">Làm thế nào để giữ vững mức chi tiêu hằng tháng sau khi nghỉ hưu ?</h2>
+                            <div class="adjust-2">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Số tuổi hiện tại</td>
+                                            <td width="1%">
+                                                <input class="form-control js-planning-input" type="text" value="30" data-number-input data-min="0" data-role="currentAge">
+                                            </td>
+                                            <td width="1%">Tuổi</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Số tuổi nghỉ hưu</td>
+                                            <td width="1%">
+                                                <input class="form-control js-planning-input" type="text" value="60" data-number-input data-min="0" data-role="retirementAge">
+                                            </td>
+                                            <td width="1%">Tuổi</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Số năm nghỉ hưu</td>
+                                            <td width="1%">
+                                                <input class="form-control js-planning-input" type="text" value="25" data-number-input data-min="0" data-role="retirementYears">
+                                            </td>
+                                            <td width="1%">Năm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Thu nhập hiện tại hàng tháng</td>
+                                            <td width="1%">
+                                                <input class="form-control js-planning-input" type="text" value="25" data-number-input data-min="0" data-role="monthlyIncome">
+                                            </td>
+                                            <td width="1%">Triệu</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Chi phí sinh hoạt hàng tháng</td>
+                                            <td width="1%">
+                                                <input class="form-control js-planning-input" type="text" value="15" data-number-input data-min="0" data-role="monthlyExpenses">
+                                            </td>
+                                            <td width="1%">Triệu</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Số tiền đầu tư ban đầu</td>
+                                            <td width="1%">
+                                                <input class="form-control js-planning-input" type="text" value="300" data-number-input data-min="0" data-role="initialInvestmentAmount">
+                                            </td>
+                                            <td width="1%">Triệu</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Số năm đầu tư dự kiến trước khi nghỉ</td>
+                                            <td width="1%">
+                                                <input class="form-control js-investment-years" type="text" value="30" disabled readonly>
+                                            </td>
+                                            <td width="1%">Năm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lạm phát điều chỉnh</td>
+                                            <td width="1%">
+                                                <input class="form-control js-planning-input" type="text" value="3" data-number-input data-min="0" data-role="inflationary">
+                                            </td>
+                                            <td width="1%">%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                    </div>
-                </section>
-                <section class="section-3 bg-light">
-                    <div class="container">
-                        <div class="adjust-2">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <td>Số tiền cần khi nghỉ hưu</td>
-                                        <td width="1%">
-                                            <input class="form-control" type="text" value="35" data-number-input data-min="0">
-                                        </td>
-                                        <td width="1%">Triệu</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Số tiền cần tiết kiệm mỗi tháng trước khi nghỉ hưu</td>
-                                        <td width="1%">
-                                            <input class="form-control" type="text" value="35" data-number-input data-min="0">
-                                        </td>
-                                        <td width="1%">Triệu</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tỉ lệ tiết kiệm - thu nhập hằng năm</td>
-                                        <td class="disabled" width="1%">
-                                            <input class="form-control" type="text" value="25%">
-                                        </td>
-                                        <td width="1%"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </section>
-                <section class="section-3">
-                    <div class="container">
-                        <div class="section-3__content mb-40">
-                            <div id="ke-hoach-huu-tri"></div>
-                        </div>
-                        <div class="adjust-result media">
-                            <div class="media-body">
-                                <div class="adjust-result__body bg-light">
-                                    <div class="adjust-result__label">KẾT QUẢ :</div>
-                                    <div class="adjust-result__content">
-                                        <div>Để có mức chi tiêu là <span class="text-danger font-weight-bold">20</span> triệu một tháng trong <span class="text-danger font-weight-bold">15</span> năm sau khi nghỉ hưu</div>
-                                        <div>Với lãi suất đầu tư dự kiến là <span class="text-danger font-weight-bold">7</span> % một năm</div>
-                                        <div>Thì số tiền anh / chị cần tích lũy hàng tháng là <span class="text-danger font-weight-bold">7</span> triệu,</div>
-                                        <div>Tương ứng <span class="text-danger font-weight-bold">12</span>% Thu nhập hàng tháng.</div>
-                                        <div>Với số vốn đầu tư ban đầu là <span class="text-danger font-weight-bold">300</span> triệu và thời gian đầu tư là <span class="text-danger font-weight-bold">15</span> năm.</div>
+                    </section>
+                    <section class="section-3">
+                        <div class="container">
+                            <h2 class="section-3__title">KHẨU VỊ RỦI RO ĐẦU TƯ</h2>
+                            <div class="section-3__content">
+                                <div class="row gutter -all-20">
+                                    <div class="col-lg-3 col-sm-6 mb-30">
+                                        <div class="risk-card">
+                                            <div class="risk-card__header">
+                                                <label class="radio-styled">
+                                                    <input class="radio-styled__input js-planning-input" type="radio" name="riskApetite" value="Tiết kiệm" data-role="riskApetite" checked="checked"><span class="radio-styled__icon"></span>Tiết kiệm
+                                                </label>
+                                            </div>
+                                            <div id="huu-tri-tiet-kiem"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 mb-30">
+                                        <div class="risk-card">
+                                            <div class="risk-card__header">
+                                                <label class="radio-styled">
+                                                    <input class="radio-styled__input js-planning-input" type="radio" name="riskApetite" value="Bảo toàn" data-role="riskApetite"><span class="radio-styled__icon"></span>Bảo toàn
+                                                </label>
+                                            </div>
+                                            <div id="huu-tri-bao-toan"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 mb-30">
+                                        <div class="risk-card">
+                                            <div class="risk-card__header">
+                                                <label class="radio-styled">
+                                                    <input class="radio-styled__input js-planning-input" type="radio" name="riskApetite" value="Cân bằng" data-role="riskApetite"><span class="radio-styled__icon"></span>Cân bằng
+                                                </label>
+                                            </div>
+                                            <div id="huu-tri-can-bang"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 mb-30">
+                                        <div class="risk-card">
+                                            <div class="risk-card__header">
+                                                <label class="radio-styled">
+                                                    <input class="radio-styled__input js-planning-input" type="radio" name="riskApetite" value="Tăng trưởng" data-role="riskApetite"><span class="radio-styled__icon"></span>Tăng trưởng
+                                                </label>
+                                            </div>
+                                            <div id="huu-tri-tang-truong"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="adjust-btns"><a class="adjust-btns__btn adjust-btns__btn--block" href="#!">Thực hiện</a><a class="adjust-btns__btn mr-10" href="#!"><i class="fa fa-bookmark"></i>Lưu</a><a class="adjust-btns__btn" href="#!"><i class="fa fa-share-alt"></i>Chia sẻ</a></div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                    <section class="section-3 bg-light js-planning-scroll-to">
+                        <div class="container">
+                            <div class="adjust-2">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Số tiền cần khi nghỉ hưu</td>
+                                            <td width="1%">
+                                                <input class="form-control js-saving-amount" type="text" value="3,163" data-number-input data-min="0" readonly>
+                                            </td>
+                                            <td width="1%">Triệu</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Số tiền cần tiết kiệm mỗi tháng trước khi nghỉ hưu</td>
+                                            <td width="1%">
+                                                <input class="form-control js-saving-amount-per-month" type="text" value="0.6" data-number-input data-min="0" readonly>
+                                            </td>
+                                            <td width="1%">Triệu</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tỉ lệ tiết kiệm - thu nhập hằng năm</td>
+                                            <td class="disabled" width="1%">
+                                                <input class="form-control js-interest-rate" type="text" value="7%" readonly>
+                                            </td>
+                                            <td width="1%"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="section-3">
+                        <div class="container">
+                            <div class="section-3__content mb-40">
+                                <div id="ke-hoach-huu-tri"></div>
+                            </div>
+                            <div class="adjust-result media">
+                                <div class="media-body js-planning-result"></div>
+                                <div class="adjust-btns"><a class="adjust-btns__btn adjust-btns__btn--block js-planning-submit" href="#!">Thực hiện</a><a class="adjust-btns__btn mr-10" href="#!"><i class="fa fa-bookmark"></i>Lưu</a><a class="adjust-btns__btn" href="#!"><i class="fa fa-share-alt"></i>Chia sẻ</a></div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
             <!-- footer-->
             <footer class="footer">

@@ -10,160 +10,6 @@ if ($(window).width() > 1200) {
   areaLabelFontSize = "18px";
 }
 
-// Kế hoạch đầu tư
-$(function () {
-  if (!$("#ke-hoach-dau-tu")[0]) return;
-
-  Highcharts.chart("ke-hoach-dau-tu", {
-    chart: {
-      type: "areaspline"
-    },
-    title: "",
-    credits: {
-      enabled: false
-    },
-    xAxis: {
-      allowDecimals: false,
-      categories: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
-    },
-    yAxis: {
-      title: {
-        text: ""
-      },
-      labels: {
-        formatter: function () {
-          return this.value.toLocaleString("en");
-        },
-        style: {
-          fontSize: areaLabelFontSize,
-          fontWeight: "400",
-          fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
-        }
-      }
-    },
-    legend: {
-      symbolRadius: 0,
-      symbolWidth: 35,
-      itemStyle: {
-        fontSize: legendFontSize,
-        fontWeight: legendFontWeight,
-        fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
-      }
-    },
-    tooltip: {
-      pointFormat: "{series.name}:<br/> {point.y:,.0f} VND"
-    },
-    plotOptions: {
-      area: {
-        pointStart: 0,
-        marker: {
-          enabled: false,
-          symbol: "circle",
-          radius: 2,
-          states: {
-            hover: {
-              enabled: true
-            }
-          }
-        }
-      },
-      areaspline: {
-        fillOpacity: 0.5
-      }
-    },
-    series: [{
-      type: "area",
-      color: "#ddd",
-      name: "Số dư dự kiến",
-      data: [138000000, 126000000, 95000000, 81000000, 75000000, 62000000, 56000000, 50000000, 46000000, 42000000, 39000000, 36000000, 30000000]
-    }, {
-      type: "column",
-      color: "#F5BE14",
-      name: "Tiền tích luỹ hàng năm",
-      data: [null, 95000000, null, null, null, null, null, null, null, null, 34000000, null, null]
-    }, {
-      type: "column",
-      color: "#182A54",
-      name: "Chi tiêu",
-      data: [null, 60000000, null, null, null, null, null, null, null, null, 29000000, null, null]
-    }]
-  });
-});
-
-// Kế hoạch hưu trí
-$(function () {
-  if (!$("#ke-hoach-huu-tri")[0]) return;
-
-  Highcharts.chart("ke-hoach-huu-tri", {
-    chart: {
-      type: "areaspline"
-    },
-    title: "",
-    xAxis: {
-      allowDecimals: false,
-      categories: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
-    },
-    yAxis: {
-      title: {
-        text: ""
-      },
-      labels: {
-        formatter: function () {
-          return this.value.toLocaleString("en");
-        },
-        style: {
-          fontSize: areaLabelFontSize,
-          fontWeight: "400",
-          fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
-        }
-      }
-    },
-    legend: {
-      symbolRadius: 0,
-      symbolWidth: 35,
-      itemStyle: {
-        fontSize: legendFontSize,
-        fontWeight: legendFontWeight,
-        fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
-      }
-    },
-    tooltip: {
-      pointFormat: "{series.name}:<br/> {point.y:,.0f} VND"
-    },
-    plotOptions: {
-      area: {
-        pointStart: 0,
-        marker: {
-          enabled: false,
-          symbol: "circle",
-          radius: 2,
-          states: {
-            hover: {
-              enabled: true
-            }
-          }
-        }
-      }
-    },
-    series: [{
-      type: "area",
-      color: "#ddd",
-      name: "Số dư dự kiến",
-      data: [138000000, 126000000, 95000000, 81000000, 75000000, 62000000, 56000000, 50000000, 46000000, 42000000, 39000000, 36000000, 30000000]
-    }, {
-      type: "column",
-      color: "#F5BE14",
-      name: "Tiền tích luỹ hàng năm",
-      data: [null, 95000000, null, null, null, null, null, null, null, null, 34000000, null, null]
-    }, {
-      type: "column",
-      color: "#182A54",
-      name: "Chi tiêu",
-      data: [null, 60000000, null, null, null, null, null, null, null, null, 29000000, null, null]
-    }]
-  });
-});
-
 // Kế hoạch tiết kiệm
 $(function () {
   if (!$("#ke-hoach-tiet-kiem")[0]) return;
@@ -315,6 +161,65 @@ $(function () {
   });
 });
 
+// Khẩu vị rủi do hưu trí -- tiết kiệm
+$(function () {
+  if (!$("#huu-tri-bao-toan")[0]) return;
+
+  Highcharts.chart("huu-tri-tiet-kiem", {
+    chart: {
+      plotBackgroundColor: null,
+      plotBorderWidth: null,
+      plotShadow: false,
+      type: "pie",
+      height: "100%"
+    },
+    title: {
+      text: ""
+    },
+    tooltip: {
+      pointFormat: "{point.percentage:.1f}%</b>"
+    },
+    accessibility: {
+      point: {
+        valueSuffix: "%"
+      }
+    },
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        cursor: "pointer",
+        dataLabels: {
+          enabled: true,
+          format: "{point.percentage:.1f} %",
+          style: {
+            fontSize: "12px",
+            fontWeight: "400",
+            fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
+          }
+        },
+        showInLegend: true
+      }
+    },
+    legend: {
+      symbolRadius: 0,
+      itemStyle: {
+        fontSize: "14px",
+        fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
+      }
+    },
+    series: [{
+      name: "Brands",
+      colorByPoint: true,
+      innerSize: "80%",
+      data: [{
+        name: "Tiết kiệm",
+        color: "#aaa",
+        y: 100
+      }]
+    }]
+  });
+});
+
 // Khẩu vị rủi do hưu trí -- bảo toàn
 $(function () {
   if (!$("#huu-tri-bao-toan")[0]) return;
@@ -346,7 +251,7 @@ $(function () {
           enabled: true,
           format: "{point.percentage:.1f} %",
           style: {
-            fontSize: "14px",
+            fontSize: "12px",
             fontWeight: "400",
             fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
           }
@@ -413,7 +318,7 @@ $(function () {
           enabled: true,
           format: "{point.percentage:.1f} %",
           style: {
-            fontSize: "14px",
+            fontSize: "12px",
             fontWeight: "400",
             fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
           }
@@ -480,7 +385,7 @@ $(function () {
           enabled: true,
           format: "{point.percentage:.1f} %",
           style: {
-            fontSize: "14px",
+            fontSize: "12px",
             fontWeight: "400",
             fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
           }
@@ -547,7 +452,7 @@ $(function () {
           enabled: true,
           format: "{point.percentage:.1f} %",
           style: {
-            fontSize: "14px",
+            fontSize: "12px",
             fontWeight: "400",
             fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
           }
@@ -614,7 +519,7 @@ $(function () {
           enabled: true,
           format: "{point.percentage:.1f} %",
           style: {
-            fontSize: "14px",
+            fontSize: "12px",
             fontWeight: "400",
             fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
           }
@@ -681,7 +586,7 @@ $(function () {
           enabled: true,
           format: "{point.percentage:.1f} %",
           style: {
-            fontSize: "14px",
+            fontSize: "12px",
             fontWeight: "400",
             fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
           }

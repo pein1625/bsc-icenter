@@ -78,141 +78,155 @@
             </header>
             <div class="page__content">
                 <!-- main content-->
-                <section class="section-2">
-                    <div class="container">
-                        <h1 class="section-2__title">Kế hoạch đầu tư</h1>
-                    </div>
-                </section>
-                <section class="section-3 bg-light">
-                    <div class="container">
-                        <div class="adjust">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <td width="1%">Số tiền hiện có</td>
-                                        <td>
-                                            <div class="media align-items-center">
-                                                <div class="media-body">
-                                                    <input class="adjust__input" type="range" min="0" max="1000" step="10">
-                                                </div>
-                                                <div class="adjust__number">500</div>
-                                            </div>
-                                        </td>
-                                        <td width="1%">Triệu</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="1%">Đầu tư định kỳ</td>
-                                        <td>
-                                            <div class="media align-items-center">
-                                                <div class="media-body">
-                                                    <input class="adjust__input" type="range" min="0" max="24" step="1">
-                                                </div>
-                                                <div class="adjust__number">12</div>
-                                            </div>
-                                        </td>
-                                        <td width="1%">Tháng</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="1%">Thời gian đầu tư dự kiến</td>
-                                        <td>
-                                            <div class="media align-items-center">
-                                                <div class="media-body">
-                                                    <input class="adjust__input" type="range" min="0" max="10000" step="50">
-                                                </div>
-                                                <div class="adjust__number">5000</div>
-                                            </div>
-                                        </td>
-                                        <td width="1%">Triệu</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                <div id="investment-planning">
+                    <section class="section-2">
+                        <div class="container">
+                            <h1 class="section-2__title">Kế hoạch đầu tư</h1>
                         </div>
-                    </div>
-                </section>
-                <section class="section-3">
-                    <div class="container">
-                        <h2 class="section-3__title">Khẩu vị rủi do đầu tư</h2>
-                        <div class="section-3__content">
-                            <div class="row">
-                                <div class="col-md-4 mb-30">
-                                    <div id="dau-tu-bao-toan"></div>
-                                </div>
-                                <div class="col-md-4 mb-30">
-                                    <div id="dau-tu-can-bang"></div>
-                                </div>
-                                <div class="col-md-4 mb-30">
-                                    <div id="dau-tu-tang-truong"></div>
-                                </div>
+                    </section>
+                    <section class="section-3 bg-light">
+                        <div class="container">
+                            <div class="adjust">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td width="1%">Số tiền hiện có</td>
+                                            <td>
+                                                <div class="media align-items-center">
+                                                    <div class="media-body">
+                                                        <input class="adjust__input js-planning-input" type="range" min="10" max="1000" step="5" value="500" data-role="presentValue">
+                                                    </div>
+                                                    <div class="adjust__number">500</div>
+                                                </div>
+                                            </td>
+                                            <td width="1%">Triệu</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="1%">Đầu tư định kỳ</td>
+                                            <td>
+                                                <div class="media align-items-center">
+                                                    <div class="media-body">
+                                                        <input class="adjust__input js-planning-input" type="range" min="1" max="100" step="1" value="50" data-role="paymentPerMonth">
+                                                    </div>
+                                                    <div class="adjust__number">50</div>
+                                                </div>
+                                            </td>
+                                            <td width="1%">Triệu</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="1%">Thời gian đầu tư dự kiến</td>
+                                            <td>
+                                                <div class="media align-items-center">
+                                                    <div class="media-body">
+                                                        <input class="adjust__input js-planning-input" type="range" min="1" max="50" step="1" value="5" data-role="investmentYears">
+                                                    </div>
+                                                    <div class="adjust__number">5</div>
+                                                </div>
+                                            </td>
+                                            <td width="1%">Năm</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                    </div>
-                </section>
-                <section class="section-3 bg-light">
-                    <div class="container">
-                        <div class="adjust">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <td width="1%">Cổ phiếu</td>
-                                        <td>
-                                            <div class="media align-items-center">
-                                                <div class="media-body">
-                                                    <input class="adjust__input" type="range" min="1" max="100" step="1">
-                                                </div>
-                                                <div class="adjust__number">50</div>
+                    </section>
+                    <section class="section-3">
+                        <div class="container">
+                            <h2 class="section-3__title">Khẩu vị rủi do đầu tư</h2>
+                            <div class="section-3__content">
+                                <div class="row">
+                                    <div class="col-md-4 mb-30">
+                                        <div class="risk-card">
+                                            <div class="risk-card__header">
+                                                <label class="radio-styled">
+                                                    <input class="radio-styled__input js-planning-input" type="radio" name="riskApetite" value="Bảo toàn" data-role="riskApetite"><span class="radio-styled__icon"></span>Bảo toàn
+                                                </label>
                                             </div>
-                                        </td>
-                                        <td width="1%">%</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="1%">Trái phiếu</td>
-                                        <td>
-                                            <div class="media align-items-center">
-                                                <div class="media-body">
-                                                    <input class="adjust__input" type="range" min="1" max="100" step="1">
-                                                </div>
-                                                <div class="adjust__number">15</div>
+                                            <div id="dau-tu-bao-toan"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-30">
+                                        <div class="risk-card">
+                                            <div class="risk-card__header">
+                                                <label class="radio-styled">
+                                                    <input class="radio-styled__input js-planning-input" type="radio" name="riskApetite" value="Cân bằng" data-role="riskApetite"><span class="radio-styled__icon"></span>Cân bằng
+                                                </label>
                                             </div>
-                                        </td>
-                                        <td width="1%">%</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="1%">Tiết kiệm</td>
-                                        <td>
-                                            <div class="media align-items-center">
-                                                <div class="media-body">
-                                                    <input class="adjust__input" type="range" min="1" max="100" step="1">
-                                                </div>
-                                                <div class="adjust__number">25</div>
+                                            <div id="dau-tu-can-bang"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-30">
+                                        <div class="risk-card">
+                                            <div class="risk-card__header">
+                                                <label class="radio-styled">
+                                                    <input class="radio-styled__input js-planning-input" type="radio" name="riskApetite" value="Tăng trưởng" data-role="riskApetite"><span class="radio-styled__icon"></span>Tăng trưởng
+                                                </label>
                                             </div>
-                                        </td>
-                                        <td width="1%">%</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </section>
-                <section class="section-3">
-                    <div class="container">
-                        <div class="section-3__content mb-40">
-                            <div id="ke-hoach-dau-tu"></div>
-                        </div>
-                        <div class="adjust-result media">
-                            <div class="media-body">
-                                <div class="adjust-result__body bg-light">
-                                    <div class="adjust-result__label">KẾT QUẢ :</div>
-                                    <div class="adjust-result__content">
-                                        <div>Với số tiền đầu tư ban đầu là <span class="text-danger font-weight-bold">10</span> triệu,</div>
-                                        <div>và tích lũy định kỳ hàng năm là <span class="text-danger font-weight-bold">20</span> triệu trong <span class="text-danger font-weight-bold">20</span> năm,</div>
-                                        <div>Số tiền dự kiến đạt được là <span class="text-danger font-weight-bold">200</span> triệu.</div>
+                                            <div id="dau-tu-tang-truong"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="adjust-btns"><a class="adjust-btns__btn adjust-btns__btn--block" href="#!">Thực hiện</a><a class="adjust-btns__btn mr-10" href="#!"><i class="fa fa-bookmark"></i>Lưu</a><a class="adjust-btns__btn" href="#!"><i class="fa fa-share-alt"></i>Chia sẻ</a></div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                    <section class="section-3 bg-light">
+                        <div class="container">
+                            <div class="adjust">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td width="1%">Cổ phiếu</td>
+                                            <td>
+                                                <div class="media align-items-center">
+                                                    <div class="media-body">
+                                                        <input class="adjust__input js-stock-ratio" type="range" min="1" max="100" step="1" value="30" readonly disabled>
+                                                    </div>
+                                                    <div class="adjust__number">30</div>
+                                                </div>
+                                            </td>
+                                            <td width="1%">%</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="1%">Trái phiếu</td>
+                                            <td>
+                                                <div class="media align-items-center">
+                                                    <div class="media-body">
+                                                        <input class="adjust__input js-bond-ratio" type="range" min="1" max="100" step="1" value="30" readonly disabled>
+                                                    </div>
+                                                    <div class="adjust__number">30</div>
+                                                </div>
+                                            </td>
+                                            <td width="1%">%</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="1%">Tiết kiệm</td>
+                                            <td>
+                                                <div class="media align-items-center">
+                                                    <div class="media-body">
+                                                        <input class="adjust__input js-saving-ratio" type="range" min="1" max="100" step="1" value="40" readonly disabled>
+                                                    </div>
+                                                    <div class="adjust__number">40</div>
+                                                </div>
+                                            </td>
+                                            <td width="1%">%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="section-3 js-planning-scroll-to">
+                        <div class="container">
+                            <div class="section-3__content mb-40">
+                                <div id="ke-hoach-dau-tu"></div>
+                            </div>
+                            <div class="adjust-result media">
+                                <div class="media-body js-planning-result"></div>
+                                <div class="adjust-btns"><a class="adjust-btns__btn adjust-btns__btn--blockl js-planning-submit" href="#!">Thực hiện</a><a class="adjust-btns__btn mr-10" href="#!"><i class="fa fa-bookmark"></i>Lưu</a><a class="adjust-btns__btn" href="#!"><i class="fa fa-share-alt"></i>Chia sẻ</a></div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
             <!-- footer-->
             <footer class="footer">
