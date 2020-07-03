@@ -383,6 +383,31 @@ $(function () {
   $(".popup").modal("show");
 });
 
+$(function () {
+  $inputs = $(".input-progress").find("input");
+
+  $inputs.on("input change", function () {
+    updateRange(this);
+  });
+
+  $inputs.each(function () {
+    updateRange(this);
+  });
+
+  function updateRange(input) {
+    var min = input.min,
+        max = input.max,
+        val = input.value;
+
+    width = (val - min) * 100 / (max - min) + "%";
+    console.log(width);
+
+    $(input).siblings(".input-progress__track").children(".input-progress__inner").css({
+      width: (val - min) * 100 / (max - min) + "%"
+    });
+  }
+});
+
 // Kế hoạch hưu trí
 const Retirement = function () {
   const RetirementClass = function () {};
@@ -459,7 +484,6 @@ const Retirement = function () {
   RetirementClass.prototype.updateResult = function () {
     let savePerMonthRadio = Math.round(this.savingAmountPerMonth * 10000 / this.monthlyIncome) / 100;
 
-    debugger;
     let result = `
 <div class="adjust-result__body bg-light">
   <div class="adjust-result__label">KẾT QUẢ :</div>
@@ -491,73 +515,24 @@ const Retirement = function () {
       expenses.push(this.monthlyExpenses * 12 * 1000000);
     }
 
-    Highcharts.chart("ke-hoach-huu-tri", {
-      chart: {
-        type: "areaspline"
-      },
-      title: "",
-      yAxis: {
-        title: {
-          text: ""
-        },
-        labels: {
-          formatter: function () {
-            return this.value.toLocaleString("en");
-          },
-          style: {
-            fontSize: areaLabelFontSize,
-            fontWeight: "400",
-            fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
-          }
-        }
-      },
-      legend: {
-        symbolRadius: 0,
-        symbolWidth: 35,
-        itemStyle: {
-          fontSize: legendFontSize,
-          fontWeight: legendFontWeight,
-          fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
-        }
-      },
-      tooltip: {
-        pointFormat: "{series.name}:<br/> {point.y:,.0f} VND"
-      },
-      plotOptions: {
-        area: {
-          pointStart: this.currentAge,
-          marker: {
-            enabled: false,
-            symbol: "circle",
-            radius: 2,
-            states: {
-              hover: {
-                enabled: true
-              }
-            }
-          }
-        },
-        column: {
-          pointStart: this.currentAge
-        }
-      },
-      series: [{
-        type: "area",
-        color: "#ddd",
-        name: "Số dư dự kiến",
-        data: surplus
-      }, {
-        type: "column",
-        color: "#F5BE14",
-        name: "Tiền tích luỹ hàng năm",
-        data: accumulate
-      }, {
-        type: "column",
-        color: "#182A54",
-        name: "Chi tiêu",
-        data: expenses
-      }]
-    });
+    let series = [{
+      type: "area",
+      color: "#ddd",
+      name: "Số dư dự kiến",
+      data: surplus
+    }, {
+      type: "column",
+      color: "#F5BE14",
+      name: "Tiền tích luỹ hàng năm",
+      data: accumulate
+    }, {
+      type: "column",
+      color: "#182A54",
+      name: "Chi tiêu",
+      data: expenses
+    }];
+
+    showRetirementPlanningChart(series);
   };
 
   // Tính kết quả và ghi ra màn hình
@@ -611,7 +586,75 @@ $(function () {
       scrollTop: $(".js-planning-scroll-to").offset().top
     }, 800);
   });
+
+  showRetirementPlanningChart();
 });
+
+function showRetirementPlanningChart(series) {
+  if (!$("#ke-hoach-huu-tri")[0]) return;
+
+  series = series || [{
+    type: "area",
+    color: "#ddd",
+    name: "Số dư dự kiến",
+    data: [300000000, 329080000, 360270000, 393710000, 429570000, 468020000, 509250000, 553460000, 600870000, 651700000, 706210000, 764660000, 827340000, 894540000, 966610000, 1043880000.0000001, 1126740000, 1215590000, 1310860000, 1413020000, 1522560000, 1640030000, 1765980000, 1901040000, 2045860000, 2201160000, 2367680000, 2546230000, 2737700000, 2943000000, 3163150000]
+  }, {
+    type: "column",
+    color: "#F5BE14",
+    name: "Tiền tích luỹ hàng năm",
+    data: [0, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999, 7199999.999999999]
+  }, {
+    type: "column",
+    color: "#182A54",
+    name: "Chi tiêu",
+    data: [0, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000, 180000000]
+  }];
+
+  Highcharts.chart("ke-hoach-huu-tri", {
+    chart: {
+      type: "areaspline"
+    },
+    title: "",
+    yAxis: {
+      title: {
+        text: ""
+      },
+      labels: {
+        formatter: function () {
+          return this.value.toLocaleString("en");
+        },
+        style: {
+          fontSize: areaLabelFontSize,
+          fontWeight: "400",
+          fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
+        }
+      }
+    },
+    legend: false,
+    tooltip: {
+      pointFormat: "{series.name}:<br/> {point.y:,.0f} VND"
+    },
+    plotOptions: {
+      area: {
+        pointStart: this.currentAge,
+        marker: {
+          enabled: false,
+          symbol: "circle",
+          radius: 2,
+          states: {
+            hover: {
+              enabled: true
+            }
+          }
+        }
+      },
+      column: {
+        pointStart: this.currentAge
+      }
+    },
+    series: series
+  });
+}
 
 // Kế hoạch đầu tư
 const Investment = function () {
@@ -637,24 +680,24 @@ const Investment = function () {
 
     switch (this.riskApetite) {
       case "Bảo toàn":
-        $stock.val("30");
-        $bond.val("30");
-        $saving.val("40");
+        $stock.val("30").trigger("change");
+        $bond.val("30").trigger("change");
+        $saving.val("40").trigger("change");
         break;
       case "Cân bằng":
-        $stock.val("50");
-        $bond.val("35");
-        $saving.val("15");
+        $stock.val("50").trigger("change");
+        $bond.val("35").trigger("change");
+        $saving.val("15").trigger("change");
         break;
       case "Tăng trưởng":
-        $stock.val("65");
-        $bond.val("25");
-        $saving.val("10");
+        $stock.val("65").trigger("change");
+        $bond.val("25").trigger("change");
+        $saving.val("10").trigger("change");
         break;
       default:
-        $stock.val("30");
-        $bond.val("30");
-        $saving.val("40");
+        $stock.val("30").trigger("change");
+        $bond.val("30").trigger("change");
+        $saving.val("40").trigger("change");
     }
 
     $stock.trigger("change");
@@ -708,73 +751,33 @@ const Investment = function () {
     // Tiền tích trữ hàng năm
     let accumulate = [0];
 
+    // Chi tiêu
+    let expenses = [0];
+
     for (let year = 0; year < this.investmentYears; year++) {
       surplus.push(this.getFutureValue(year + 1) * 1000000);
       accumulate.push(this.paymentPerYear * 1000000);
+      expenses.push(0);
     }
 
-    Highcharts.chart("ke-hoach-dau-tu", {
-      chart: {
-        type: "areaspline"
-      },
-      title: "",
-      yAxis: {
-        title: {
-          text: ""
-        },
-        labels: {
-          formatter: function () {
-            return this.value.toLocaleString("en");
-          },
-          style: {
-            fontSize: areaLabelFontSize,
-            fontWeight: "400",
-            fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
-          }
-        }
-      },
-      legend: {
-        symbolRadius: 0,
-        symbolWidth: 35,
-        itemStyle: {
-          fontSize: legendFontSize,
-          fontWeight: legendFontWeight,
-          fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
-        }
-      },
-      tooltip: {
-        pointFormat: "{series.name}:<br/> {point.y:,.0f} VND"
-      },
-      plotOptions: {
-        area: {
-          pointStart: 0,
-          marker: {
-            enabled: false,
-            symbol: "circle",
-            radius: 2,
-            states: {
-              hover: {
-                enabled: true
-              }
-            }
-          }
-        },
-        column: {
-          pointStart: 0
-        }
-      },
-      series: [{
-        type: "area",
-        color: "#ddd",
-        name: "Số dư dự kiến",
-        data: surplus
-      }, {
-        type: "column",
-        color: "#F5BE14",
-        name: "Tiền tích luỹ hàng năm",
-        data: accumulate
-      }]
-    });
+    let series = [{
+      type: "area",
+      color: "#E7E7E7",
+      name: "SỐ DƯ DỰ KIẾN",
+      data: surplus
+    }, {
+      type: "column",
+      color: "#F59D1E",
+      name: "TIỀN TÍCH LUỸ HÀNG NĂM",
+      data: accumulate
+    }, {
+      type: "column",
+      color: "#192852",
+      name: "CHI TIÊU",
+      data: expenses
+    }];
+
+    showInvestmentPlanningChart(series);
   };
 
   // Tính kết quả và ghi ra màn hình
@@ -820,7 +823,75 @@ $(function () {
       scrollTop: $(".js-planning-scroll-to").offset().top
     }, 800);
   });
+
+  showInvestmentPlanningChart();
 });
+
+function showInvestmentPlanningChart(series) {
+  if (!$("#ke-hoach-dau-tu")[0]) return;
+
+  series = series || [{
+    type: "area",
+    color: "#E7E7E7",
+    name: "SỐ DƯ DỰ KIẾN",
+    data: [500000000, 600000000, 710000000, 831000000, 964100000, 1110510000]
+  }, {
+    type: "column",
+    color: "#F59D1E",
+    name: "TIỀN TÍCH LUỸ HÀNG NĂM",
+    data: [0, 50000000, 50000000, 50000000, 50000000, 50000000]
+  }, {
+    type: "column",
+    color: "#192852",
+    name: "CHI TIÊU",
+    data: [0, 0, 0, 0, 0, 0]
+  }];
+
+  Highcharts.chart("ke-hoach-dau-tu", {
+    chart: {
+      type: "areaspline"
+    },
+    title: "",
+    yAxis: {
+      title: {
+        text: ""
+      },
+      labels: {
+        formatter: function () {
+          return this.value.toLocaleString("en");
+        },
+        style: {
+          fontSize: areaLabelFontSize,
+          fontWeight: "400",
+          fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
+        }
+      }
+    },
+    legend: false,
+    tooltip: {
+      pointFormat: "{series.name}:<br/> {point.y:,.0f} VND"
+    },
+    plotOptions: {
+      area: {
+        pointStart: 0,
+        marker: {
+          enabled: false,
+          symbol: "circle",
+          radius: 2,
+          states: {
+            hover: {
+              enabled: true
+            }
+          }
+        }
+      },
+      column: {
+        pointStart: 0
+      }
+    },
+    series: series
+  });
+}
 
 // Kế hoạch tiết kiệm
 const Saving = function () {
@@ -870,73 +941,33 @@ const Saving = function () {
     // Tiền tiết kiệm hàng tháng
     let monthlySavings = [0];
 
+    // Chi tiêu
+    let expenses = [0];
+
     for (let month = 0; month < this.savingMonths; month++) {
       surplus.push(this.getFutureValue(month + 1) * 1000000);
       monthlySavings.push(this.getSavingPerMonth() * 1000000);
+      expenses.push(0);
     }
 
-    Highcharts.chart("ke-hoach-tiet-kiem", {
-      chart: {
-        type: "areaspline"
-      },
-      title: "",
-      yAxis: {
-        title: {
-          text: ""
-        },
-        labels: {
-          formatter: function () {
-            return this.value.toLocaleString("en");
-          },
-          style: {
-            fontSize: areaLabelFontSize,
-            fontWeight: "400",
-            fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
-          }
-        }
-      },
-      legend: {
-        symbolRadius: 0,
-        symbolWidth: 35,
-        itemStyle: {
-          fontSize: legendFontSize,
-          fontWeight: legendFontWeight,
-          fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
-        }
-      },
-      tooltip: {
-        pointFormat: "{series.name}:<br/> {point.y:,.0f} VND"
-      },
-      plotOptions: {
-        area: {
-          pointStart: 0,
-          marker: {
-            enabled: false,
-            symbol: "circle",
-            radius: 2,
-            states: {
-              hover: {
-                enabled: true
-              }
-            }
-          }
-        },
-        column: {
-          pointStart: 0
-        }
-      },
-      series: [{
-        type: "area",
-        color: "#ddd",
-        name: "Số dư dự kiến",
-        data: surplus
-      }, {
-        type: "column",
-        color: "#F5BE14",
-        name: "Tiền tích luỹ tháng",
-        data: monthlySavings
-      }]
-    });
+    let series = [{
+      type: "area",
+      color: "#E7E7E7",
+      name: "SỐ DƯ DỰ KIẾN",
+      data: surplus
+    }, {
+      type: "column",
+      color: "#F59D1E",
+      name: "TIỀN TÍCH LUỸ HÀNG THÁNG",
+      data: monthlySavings
+    }, {
+      type: "column",
+      color: "#ADADAD",
+      name: "CHI TIÊU",
+      data: expenses
+    }];
+
+    showSavingPlanningChart(series);
   };
 
   // Tính kết quả và ghi ra màn hình
@@ -971,7 +1002,76 @@ $(function () {
       scrollTop: $(".js-planning-scroll-to").offset().top
     }, 800);
   });
+
+  showSavingPlanningChart();
 });
+
+function showSavingPlanningChart(series) {
+  if (!$("#ke-hoach-tiet-kiem")[0]) return;
+
+  series = series || [{
+    type: "area",
+    color: "#E7E7E7",
+    name: "SỐ DƯ DỰ KIẾN",
+    data: [50000000, 59740000, 69540000, 79390000, 89300000, 99270000, 109300000, 119390000, 129530000, 139740000, 150000000]
+  }, {
+    type: "column",
+    color: "#F59D1E",
+    name: "TIỀN TÍCH LUỸ HÀNG THÁNG",
+    data: [0, 9448632.309377654, 9448632.309377654, 9448632.309377654, 9448632.309377654, 9448632.309377654, 9448632.309377654, 9448632.309377654, 9448632.309377654, 9448632.309377654, 9448632.309377654]
+  }, {
+    type: "column",
+    color: "#ADADAD",
+    name: "CHI TIÊU",
+    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  }];
+
+  Highcharts.chart("ke-hoach-tiet-kiem", {
+    chart: {
+      type: "areaspline"
+    },
+    title: "",
+    yAxis: {
+      title: {
+        text: ""
+      },
+      labels: {
+        formatter: function () {
+          return this.value.toLocaleString("en");
+        },
+        style: {
+          color: "#F59D1E",
+          fontSize: areaLabelFontSize,
+          fontWeight: "400",
+          fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
+        }
+      }
+    },
+    legend: false,
+    tooltip: {
+      pointFormat: "{series.name}:<br/> {point.y:,.0f} VND"
+    },
+    plotOptions: {
+      area: {
+        pointStart: 0,
+        marker: {
+          enabled: false,
+          symbol: "circle",
+          radius: 2,
+          states: {
+            hover: {
+              enabled: true
+            }
+          }
+        }
+      },
+      column: {
+        pointStart: 0
+      }
+    },
+    series: series
+  });
+}
 
 // Kế hoạch tài chính cá nhân
 
@@ -1152,11 +1252,9 @@ function showPersonalFinancialChart(series) {
   let vw = $(window).width();
   let chartHeight = "50%";
   let labelFontSize = "16px";
-  let legendFontSize = "20px";
 
   if (vw < 1200) {
     labelFontSize = "10px";
-    legendFontSize = "14px";
   }
 
   if (vw < 767) {
@@ -1165,7 +1263,6 @@ function showPersonalFinancialChart(series) {
 
   if (vw < 575) {
     chartHeight = "100%";
-    legendFontSize = "12px";
   }
 
   series = series || [{
@@ -1218,15 +1315,7 @@ function showPersonalFinancialChart(series) {
         valueSuffix: "%"
       }
     },
-    legend: {
-      symbolRadius: 0,
-      symbolWidth: 35,
-      itemStyle: {
-        fontSize: legendFontSize,
-        fontWeight: legendFontWeight,
-        fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
-      }
-    },
+    legend: false,
     plotOptions: {
       pie: {
         allowPointSelect: true,

@@ -9,66 +9,6 @@ if ($(window).width() > 1200) {
   areaLabelFontSize = "18px";
 }
 
-// Khẩu vị rủi do hưu trí -- tiết kiệm
-$(function () {
-  if (!$("#huu-tri-bao-toan")[0]) return;
-
-  Highcharts.chart("huu-tri-tiet-kiem", {
-    chart: {
-      plotBackgroundColor: null,
-      plotBorderWidth: null,
-      plotShadow: false,
-      type: "pie",
-      width: "100%",
-      height: "100%"
-    },
-    title: {
-      text: ""
-    },
-    tooltip: {
-      pointFormat: "{point.percentage:.1f}%</b>"
-    },
-    accessibility: {
-      point: {
-        valueSuffix: "%"
-      }
-    },
-    plotOptions: {
-      pie: {
-        allowPointSelect: true,
-        cursor: "pointer",
-        dataLabels: {
-          enabled: true,
-          format: "{point.percentage:.1f} %",
-          style: {
-            fontSize: "12px",
-            fontWeight: "400",
-            fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
-          }
-        },
-        showInLegend: true
-      }
-    },
-    legend: {
-      symbolRadius: 0,
-      itemStyle: {
-        fontSize: "14px",
-        fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
-      }
-    },
-    series: [{
-      name: "Brands",
-      colorByPoint: true,
-      innerSize: "80%",
-      data: [{
-        name: "Tiết kiệm",
-        color: "#aaa",
-        y: 100
-      }]
-    }]
-  });
-});
-
 // Khẩu vị rủi do hưu trí -- bảo toàn
 $(function () {
   if (!$("#huu-tri-bao-toan")[0]) return;
@@ -108,28 +48,22 @@ $(function () {
         showInLegend: true
       }
     },
-    legend: {
-      symbolRadius: 0,
-      itemStyle: {
-        fontSize: "14px",
-        fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
-      }
-    },
+    legend: false,
     series: [{
       name: "Brands",
       colorByPoint: true,
       innerSize: "80%",
       data: [{
         name: "Tiết kiệm",
-        color: "#aaa",
+        color: "#F59D1E",
         y: 40
       }, {
         name: "Trái phiếu",
-        color: "#21409a",
+        color: "#192852",
         y: 30
       }, {
         name: "Cổ phiếu",
-        color: "#f59d1d",
+        color: "#E7E7E7",
         y: 30
       }]
     }]
@@ -175,28 +109,22 @@ $(function () {
         showInLegend: true
       }
     },
-    legend: {
-      symbolRadius: 0,
-      itemStyle: {
-        fontSize: "14px",
-        fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
-      }
-    },
+    legend: false,
     series: [{
       name: "Brands",
       colorByPoint: true,
       innerSize: "80%",
       data: [{
         name: "Tiết kiệm",
-        color: "#aaa",
+        color: "#F59D1E",
         y: 15
       }, {
         name: "Trái phiếu",
-        color: "#21409a",
+        color: "#192852",
         y: 35
       }, {
         name: "Cổ phiếu",
-        color: "#f59d1d",
+        color: "#E7E7E7",
         y: 50
       }]
     }]
@@ -242,28 +170,22 @@ $(function () {
         showInLegend: true
       }
     },
-    legend: {
-      symbolRadius: 0,
-      itemStyle: {
-        fontSize: "14px",
-        fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
-      }
-    },
+    legend: false,
     series: [{
       name: "Brands",
       colorByPoint: true,
       innerSize: "80%",
       data: [{
         name: "Tiết kiệm",
-        color: "#aaa",
+        color: "#F59D1E",
         y: 10
       }, {
         name: "Trái phiếu",
-        color: "#21409a",
+        color: "#192852",
         y: 25
       }, {
         name: "Cổ phiếu",
-        color: "#f59d1d",
+        color: "#E7E7E7",
         y: 65
       }]
     }]
@@ -309,28 +231,22 @@ $(function () {
         showInLegend: true
       }
     },
-    legend: {
-      symbolRadius: 0,
-      itemStyle: {
-        fontSize: "14px",
-        fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
-      }
-    },
+    legend: false,
     series: [{
       name: "Brands",
       colorByPoint: true,
       innerSize: "80%",
       data: [{
         name: "Tiết kiệm",
-        color: "#aaa",
+        color: "#F59D1E",
         y: 40
       }, {
         name: "Trái phiếu",
-        color: "#21409a",
+        color: "#192852",
         y: 30
       }, {
         name: "Cổ phiếu",
-        color: "#f59d1d",
+        color: "#E7E7E7",
         y: 30
       }]
     }]
@@ -376,28 +292,22 @@ $(function () {
         showInLegend: true
       }
     },
-    legend: {
-      symbolRadius: 0,
-      itemStyle: {
-        fontSize: "14px",
-        fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
-      }
-    },
+    legend: false,
     series: [{
       name: "Brands",
       colorByPoint: true,
       innerSize: "80%",
       data: [{
         name: "Tiết kiệm",
-        color: "#aaa",
+        color: "#F59D1E",
         y: 15
       }, {
         name: "Trái phiếu",
-        color: "#21409a",
+        color: "#192852",
         y: 35
       }, {
         name: "Cổ phiếu",
-        color: "#f59d1d",
+        color: "#E7E7E7",
         y: 50
       }]
     }]
@@ -443,28 +353,22 @@ $(function () {
         showInLegend: true
       }
     },
-    legend: {
-      symbolRadius: 0,
-      itemStyle: {
-        fontSize: "14px",
-        fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
-      }
-    },
+    legend: false,
     series: [{
       name: "Brands",
       colorByPoint: true,
       innerSize: "80%",
       data: [{
         name: "Tiết kiệm",
-        color: "#aaa",
+        color: "#F59D1E",
         y: 10
       }, {
         name: "Trái phiếu",
-        color: "#21409a",
+        color: "#192852",
         y: 25
       }, {
         name: "Cổ phiếu",
-        color: "#f59d1d",
+        color: "#E7E7E7",
         y: 65
       }]
     }]

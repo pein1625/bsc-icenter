@@ -86,7 +86,7 @@
                     </section>
                     <section class="section-3 bg-light">
                         <div class="container">
-                            <h2 class="section-3__title">Làm thế nào để giữ vững mức chi tiêu hằng tháng sau khi nghỉ hưu ?</h2>
+                            <h2 class="section-3__title" style="text-transform: none">Làm thế nào để giữ vững mức chi tiêu hằng tháng sau khi nghỉ hưu ?</h2>
                             <div class="adjust-2">
                                 <table class="table">
                                     <tbody>
@@ -155,18 +155,8 @@
                         <div class="container">
                             <h2 class="section-3__title">KHẨU VỊ RỦI RO ĐẦU TƯ</h2>
                             <div class="section-3__content">
-                                <div class="row gutter -all-20">
-                                    <div class="col-lg-3 col-sm-6 mb-30">
-                                        <div class="risk-card">
-                                            <div class="risk-card__header">
-                                                <label class="radio-styled">
-                                                    <input class="radio-styled__input js-planning-input" type="radio" name="riskApetite" value="Tiết kiệm" data-role="riskApetite" checked="checked"><span class="radio-styled__icon"></span>Tiết kiệm
-                                                </label>
-                                            </div>
-                                            <div id="huu-tri-tiet-kiem"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-sm-6 mb-30">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4 mb-30">
                                         <div class="risk-card">
                                             <div class="risk-card__header">
                                                 <label class="radio-styled">
@@ -176,7 +166,7 @@
                                             <div id="huu-tri-bao-toan"></div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-sm-6 mb-30">
+                                    <div class="col-md-4 mb-30">
                                         <div class="risk-card">
                                             <div class="risk-card__header">
                                                 <label class="radio-styled">
@@ -186,7 +176,7 @@
                                             <div id="huu-tri-can-bang"></div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-sm-6 mb-30">
+                                    <div class="col-md-4 mb-30">
                                         <div class="risk-card">
                                             <div class="risk-card__header">
                                                 <label class="radio-styled">
@@ -196,6 +186,11 @@
                                             <div id="huu-tri-tang-truong"></div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="legends legends--center">
+                                    <div class="legends__item legends__item--yellow">TIẾT KIỆM</div>
+                                    <div class="legends__item legends__item--blue">TRÁI PHIẾU</div>
+                                    <div class="legends__item legends__item--gray">CỔ PHIẾU</div>
                                 </div>
                             </div>
                         </div>
@@ -233,11 +228,44 @@
                     </section>
                     <section class="section-3">
                         <div class="container">
-                            <div class="section-3__content mb-40">
+                            <div class="section-3__content mb-60">
                                 <div id="ke-hoach-huu-tri"></div>
+                                <div class="legends">
+                                    <div class="legends__item legends__item--light">SỐ DƯ DỰ KIẾN</div>
+                                    <div class="legends__item legends__item--yellow">TIỀN TÍCH LUỸ HÀNG NĂM</div>
+                                    <div class="legends__item legends__item--blue">CHI TIÊU</div>
+                                </div>
                             </div>
                             <div class="adjust-result media">
-                                <div class="media-body js-planning-result"></div>
+                                <div class="media-body js-planning-result">
+                                    <div class="adjust-result__body bg-light">
+                                        <div class="adjust-result__label">KẾT QUẢ :</div>
+                                        <div class="adjust-result__content">
+                                            <div>
+                                                Để có mức chi tiêu là
+                                                <span class="text-danger font-weight-bold">15</span> triệu một tháng trong
+                                                <span class="text-danger font-weight-bold">30</span> năm sau khi nghỉ hưu
+                                            </div>
+                                            <div>
+                                                Với lãi suất đầu tư dự kiến là
+                                                <span class="text-danger font-weight-bold">7</span> % một năm
+                                            </div>
+                                            <div>
+                                                Thì số tiền anh / chị cần tích lũy hàng tháng là
+                                                <span class="text-danger font-weight-bold">0.6</span> triệu,
+                                            </div>
+                                            <div>
+                                                Tương ứng
+                                                <span class="text-danger font-weight-bold">12</span>% Thu nhập hàng tháng.
+                                            </div>
+                                            <div>
+                                                Với số vốn đầu tư ban đầu là
+                                                <span class="text-danger font-weight-bold">300</span> triệu và thời gian đầu tư là
+                                                <span class="text-danger font-weight-bold">30</span> năm.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="adjust-btns"><a class="adjust-btns__btn adjust-btns__btn--block js-planning-submit" href="#!">Thực hiện</a><a class="adjust-btns__btn mr-10" href="#!"><i class="fa fa-bookmark"></i>Lưu</a><a class="adjust-btns__btn" href="#!"><i class="fa fa-share-alt"></i>Chia sẻ</a></div>
                             </div>
                         </div>
