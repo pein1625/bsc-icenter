@@ -562,7 +562,7 @@ const Retirement = function () {
     this.savingAmount = savingAmount;
     this.savingAmountPerMonth = savingAmountPerMonth;
 
-    $(".js-interest-rate").val(interestRate + "%");
+    $(".js-interest-rate").val(interestRate + " %");
     $(".js-saving-amount").val(savingAmount.toLocaleString("en"));
     $(".js-saving-amount-per-month").val(savingAmountPerMonth.toLocaleString("en"));
 
@@ -1142,6 +1142,15 @@ const PersonalFinancial = function () {
     $(".js-total-surplus").val(this.totalSurplus);
   };
 
+  // Validate
+  PersonalFinancialClass.prototype.validate = function () {
+    total = this.investmentFundRatio + this.savingFundRatio + this.emergencyFundRatio + this.isuranceFundRatio + this.payRatio + this.personalLivingRatio + this.travelRatio + this.foodRatio + this.relationshipsRatio + this.entertainmentRatio + this.beautyAndHealthRatio + this.educationRatio + this.otherExpensesRatio;
+
+    if (total > 100) {
+      alert("Bạn đang dùng quá tổng thu nhập của mình!");
+    }
+  };
+
   // Cập nhật kết quả
   PersonalFinancialClass.prototype.updateResult = function () {
     let result = `
@@ -1214,7 +1223,9 @@ $(function () {
 
   if ($personalFinancialPlanning.length === 0) return;
 
-  $(".js-planning-input").on("change", function () {
+  let token = true;
+
+  $(".js-planning-input").on("blur", function () {
     let value = $(this).val();
     let role = $(this).data("role");
 
@@ -1227,6 +1238,7 @@ $(function () {
     }
 
     if (role === "personalLivingRatio" || role === "travelRatio" || role === "foodRatio" || role === "relationshipsRatio" || role === "entertainmentRatio" || role === "beautyAndHealthRatio" || role === "educationRatio" || role === "otherExpensesRatio" || role === "investmentFundRatio" || role === "savingFundRatio" || role === "emergencyFundRatio" || role === "isuranceFundRatio" || role === "payRatio") {
+      PersonalFinancial.validate();
       PersonalFinancial.calcTotalExpenses();
       PersonalFinancial.calcTotalSurplus();
 

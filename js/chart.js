@@ -19,7 +19,7 @@ $(function () {
       plotBorderWidth: null,
       plotShadow: false,
       type: "pie",
-      height: "100%"
+      height: "90%"
     },
     title: {
       text: ""
@@ -41,7 +41,7 @@ $(function () {
           format: "{point.percentage:.1f} %",
           style: {
             fontSize: "12px",
-            fontWeight: "400",
+            fontWeight: "700",
             fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
           }
         },
@@ -80,7 +80,7 @@ $(function () {
       plotBorderWidth: null,
       plotShadow: false,
       type: "pie",
-      height: "100%"
+      height: "90%"
     },
     title: {
       text: ""
@@ -102,7 +102,7 @@ $(function () {
           format: "{point.percentage:.1f} %",
           style: {
             fontSize: "12px",
-            fontWeight: "400",
+            fontWeight: "700",
             fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
           }
         },
@@ -141,7 +141,7 @@ $(function () {
       plotBorderWidth: null,
       plotShadow: false,
       type: "pie",
-      height: "100%"
+      height: "90%"
     },
     title: {
       text: ""
@@ -163,7 +163,7 @@ $(function () {
           format: "{point.percentage:.1f} %",
           style: {
             fontSize: "12px",
-            fontWeight: "400",
+            fontWeight: "700",
             fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
           }
         },
@@ -202,7 +202,7 @@ $(function () {
       plotBorderWidth: null,
       plotShadow: false,
       type: "pie",
-      height: "100%"
+      height: "90%"
     },
     title: {
       text: ""
@@ -224,7 +224,7 @@ $(function () {
           format: "{point.percentage:.1f} %",
           style: {
             fontSize: "12px",
-            fontWeight: "400",
+            fontWeight: "700",
             fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
           }
         },
@@ -263,7 +263,7 @@ $(function () {
       plotBorderWidth: null,
       plotShadow: false,
       type: "pie",
-      height: "100%"
+      height: "90%"
     },
     title: {
       text: ""
@@ -285,7 +285,7 @@ $(function () {
           format: "{point.percentage:.1f} %",
           style: {
             fontSize: "12px",
-            fontWeight: "400",
+            fontWeight: "700",
             fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
           }
         },
@@ -324,7 +324,7 @@ $(function () {
       plotBorderWidth: null,
       plotShadow: false,
       type: "pie",
-      height: "100%"
+      height: "90%"
     },
     title: {
       text: ""
@@ -346,7 +346,7 @@ $(function () {
           format: "{point.percentage:.1f} %",
           style: {
             fontSize: "12px",
-            fontWeight: "400",
+            fontWeight: "700",
             fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
           }
         },
