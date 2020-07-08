@@ -78,7 +78,8 @@
             </header>
             <div class="page__content">
                 <!-- main content-->
-                <div id="saving-planning">
+                <form class="js-planning-form" id="saving-planning">
+                    <input class="js-saving-per-month" type="hidden">
                     <section class="section-2">
                         <div class="container">
                             <h1 class="section-2__title">Kế hoạch tiết kiệm</h1>
@@ -157,9 +158,11 @@
                                             <td>
                                                 <div class="media align-items-center">
                                                     <div class="media-body">
-                                                        <input class="adjust__input js-planning-input" type="range" min="10" max="500" step="5" value="50" data-role="presentValue">
+                                                        <input class="adjust__input js-planning-input" type="range" min="10" max="9999" step="1" value="50" data-role="presentValue">
                                                     </div>
-                                                    <div class="adjust__number">50</div>
+                                                    <div class="adjust__number">
+                                                        <input class="form-control js-planning-input" type="text" value="50" data-number-input data-role="presentValue">
+                                                    </div>
                                                 </div>
                                             </td>
                                             <td width="1%">Triệu</td>
@@ -171,7 +174,9 @@
                                                     <div class="media-body">
                                                         <input class="adjust__input js-planning-input" type="range" min="1" max="120" step="1" value="10" data-role="savingMonths">
                                                     </div>
-                                                    <div class="adjust__number">10</div>
+                                                    <div class="adjust__number">
+                                                        <input class="form-control js-planning-input" type="text" value="10" data-number-input data-role="savingMonths">
+                                                    </div>
                                                 </div>
                                             </td>
                                             <td width="1%">Tháng</td>
@@ -181,9 +186,11 @@
                                             <td>
                                                 <div class="media align-items-center">
                                                     <div class="media-body">
-                                                        <input class="adjust__input js-planning-input" type="range" min="100" max="300" step="5" value="150" data-role="futureValue">
+                                                        <input class="adjust__input js-planning-input" type="range" min="100" max="9990" step="1" value="150" data-role="futureValue">
                                                     </div>
-                                                    <div class="adjust__number">150</div>
+                                                    <div class="adjust__number">
+                                                        <input class="form-control js-planning-input" type="text" value="150" data-number-input data-role="futureValue">
+                                                    </div>
                                                 </div>
                                             </td>
                                             <td width="1%">Triệu</td>
@@ -195,7 +202,9 @@
                                                     <div class="media-body">
                                                         <input class="adjust__input js-planning-input" type="range" min="0" max="25" step="0.05" value="7" data-role="interestRate">
                                                     </div>
-                                                    <div class="adjust__number">7.00</div>
+                                                    <div class="adjust__number">
+                                                        <input class="form-control js-planning-input" type="text" value="7.00" data-number-input data-role="interestRate">
+                                                    </div>
                                                 </div>
                                             </td>
                                             <td width="1%">%</td>
@@ -220,10 +229,24 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="adjust-btns"><a class="adjust-btns__btn adjust-btns__btn--block js-planning-submit" href="#!">Thực hiện</a><a class="adjust-btns__btn mr-10" href="javascript:void(0);"><i class="fa fa-bookmark"></i>Lưu</a><a class="adjust-btns__btn" href="javascript:void(0);"><i class="fa fa-share-alt"></i>Chia sẻ</a></div>
+                                <div class="adjust-btns"><a class="adjust-btns__btn js-planning-submit" href="javascript:void(0);"><i class="fa fa-bookmark"></i>Tư vấn</a><a class="adjust-btns__btn" href="javascript:void(0);"><i class="fa fa-share-alt"></i>Chia sẻ</a></div>
                             </div>
                         </div>
                     </section>
+                </form>
+                <div class="save-action modal fade" tabindex="-1" data-delay="10">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <form class="modal-body" id="form-popup">
+                                <button class="save-action__close" data-dismiss="modal">X</button>
+                                <div class="save-action__frame"><img src="./images/icon-envelope-2.png" alt="icon-envelope-2" /></div>
+                                <div class="save-action__label">Bạn có muốn lưu action hiện tại?</div>
+                                <div class="popup__footer">
+                                    <button class="save-action__btn js-save-action" type="button">Lưu action</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- footer-->

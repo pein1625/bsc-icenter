@@ -9,6 +9,67 @@ if ($(window).width() > 1200) {
   areaLabelFontSize = "18px";
 }
 
+// Khẩu vị rủi do hưu trí -- tiết kiệm
+$(function () {
+  if (!$("#huu-tri-tiet-kiem")[0]) return;
+
+  Highcharts.chart("huu-tri-tiet-kiem", {
+    chart: {
+      plotBackgroundColor: null,
+      plotBorderWidth: null,
+      plotShadow: false,
+      type: "pie",
+      height: "90%"
+    },
+    title: {
+      text: ""
+    },
+    tooltip: {
+      pointFormat: "{point.percentage:.1f}%</b>"
+    },
+    accessibility: {
+      point: {
+        valueSuffix: "%"
+      }
+    },
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        cursor: "pointer",
+        dataLabels: {
+          enabled: true,
+          format: "{point.percentage:.1f} %",
+          style: {
+            fontSize: "12px",
+            fontWeight: "700",
+            fontFamily: 'Muli,Arial,Helvetica,apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
+          }
+        },
+        showInLegend: true
+      }
+    },
+    legend: false,
+    series: [{
+      name: "Brands",
+      colorByPoint: true,
+      innerSize: "80%",
+      data: [{
+        name: "Tiết kiệm",
+        color: "#F59D1E",
+        y: 100
+      }, {
+        name: "Trái phiếu",
+        color: "#192852",
+        y: 0
+      }, {
+        name: "Cổ phiếu",
+        color: "#E7E7E7",
+        y: 0
+      }]
+    }]
+  });
+});
+
 // Khẩu vị rủi do hưu trí -- bảo toàn
 $(function () {
   if (!$("#huu-tri-bao-toan")[0]) return;

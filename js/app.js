@@ -367,9 +367,9 @@ $(".grid").masonry({
 });
 
 $(function () {
-  $(".adjust__input").on("input change", function () {
+  $(".adjust").find("input").on("input change", function () {
     var val = $(this).val();
-    $(this).closest("tr").find(".adjust__number").html(val);
+    $(this).closest("tr").find("input").val(val);
   });
 });
 
@@ -444,7 +444,7 @@ const Retirement = function () {
   RetirementClass.prototype.inflationary = 3; // %
 
   // Khẩu vị rủi do: Bảo toàn, cân bằng, tăng trưởng, tiết kiệm
-  RetirementClass.prototype.riskApetite = 7; // %
+  RetirementClass.prototype.riskApetite = "Tiết kiệm"; // %
 
   // Tính số năm đầu tư
   RetirementClass.prototype.updateInterestYears = function () {
@@ -496,7 +496,7 @@ const Retirement = function () {
     <div>Để có mức chi tiêu là <span class="text-danger font-weight-bold">${this.monthlyExpenses}</span> triệu một tháng trong <span class="text-danger font-weight-bold">${this.investmentYears}</span> năm sau khi nghỉ hưu</div>
     <div>Với lãi suất đầu tư dự kiến là <span class="text-danger font-weight-bold">${this.interestRate}</span> % một năm</div>
     <div>Thì số tiền anh / chị cần tích lũy hàng tháng là <span class="text-danger font-weight-bold">${this.savingAmountPerMonth}</span> triệu,</div>
-    <div>Tương ứng <span class="text-danger font-weight-bold">12</span>% Thu nhập hàng tháng.</div>
+    <div>Tương ứng <span class="text-danger font-weight-bold">${this.savingAmountPerMonthRatio}</span>% Thu nhập hàng tháng.</div>
     <div>Với số vốn đầu tư ban đầu là <span class="text-danger font-weight-bold">${this.initialInvestmentAmount}</span> triệu và thời gian đầu tư là <span class="text-danger font-weight-bold">${this.investmentYears}</span> năm.</div>
   </div>
 </div>`;
@@ -561,10 +561,12 @@ const Retirement = function () {
     this.interestRate = interestRate;
     this.savingAmount = savingAmount;
     this.savingAmountPerMonth = savingAmountPerMonth;
+    this.savingAmountPerMonthRatio = Math.round(savingAmountPerMonth * 10000 / this.monthlyIncome) / 100;
 
     $(".js-interest-rate").val(interestRate + " %");
     $(".js-saving-amount").val(savingAmount.toLocaleString("en"));
     $(".js-saving-amount-per-month").val(savingAmountPerMonth.toLocaleString("en"));
+    $(".js-saving-amount-per-month-ratio").val(this.savingAmountPerMonthRatio);
 
     this.updateChart();
     this.updateResult();
@@ -602,6 +604,10 @@ $(function () {
     $("html, body").animate({
       scrollTop: $(".js-planning-scroll-to").offset().top
     }, 800);
+
+    setTimeout(function () {
+      $(".save-action").modal("show");
+    }, 1000);
   });
 
   showRetirementPlanningChart();
@@ -805,6 +811,8 @@ const Investment = function () {
     this.interestRate = interestRate;
     this.futureValue = futureValue;
 
+    $(".js-future-value").val(futureValue);
+
     this.updateChart();
     this.updateResult();
   };
@@ -839,6 +847,10 @@ $(function () {
     $("html, body").animate({
       scrollTop: $(".js-planning-scroll-to").offset().top
     }, 800);
+
+    setTimeout(function () {
+      $(".save-action").modal("show");
+    }, 1000);
   });
 
   showInvestmentPlanningChart();
@@ -991,6 +1003,8 @@ const Saving = function () {
   SavingClass.prototype.calcResult = function () {
     this.savingPerMonth = Math.round(this.getSavingPerMonth() * 1000000).toLocaleString("en");
 
+    $(".js-saving-per-month").val(this.savingPerMonth);
+
     this.updateChart();
     this.updateResult();
   };
@@ -1018,6 +1032,10 @@ $(function () {
     $("html, body").animate({
       scrollTop: $(".js-planning-scroll-to").offset().top
     }, 800);
+
+    setTimeout(function () {
+      $(".save-action").modal("show");
+    }, 1000);
   });
 
   showSavingPlanningChart();
@@ -1211,6 +1229,8 @@ const PersonalFinancial = function () {
 
     this.cashOnHand = cashOnHand === 0 ? cashOnHand.toLocaleString("en") : cashOnHand;
 
+    $(".js-cash-on-hand").val(this.cashOnHand);
+
     this.updateChart();
     this.updateResult();
   };
@@ -1222,8 +1242,6 @@ $(function () {
   const $personalFinancialPlanning = $("#personal-financial-planning");
 
   if ($personalFinancialPlanning.length === 0) return;
-
-  let token = true;
 
   $(".js-planning-input").on("blur", function () {
     let value = $(this).val();
@@ -1250,6 +1268,20 @@ $(function () {
   });
 
   $(".js-planning-submit").on("click", function (e) {
+    e.preventDefault();
+
+    PersonalFinancial.calcResult();
+
+    $("html, body").animate({
+      scrollTop: $(".js-planning-scroll-to").offset().top
+    }, 800);
+
+    setTimeout(function () {
+      $(".save-action").modal("show");
+    }, 1000);
+  });
+
+  $(".js-planning-calc").on("click", function (e) {
     e.preventDefault();
 
     PersonalFinancial.calcResult();

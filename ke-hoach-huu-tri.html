@@ -78,7 +78,8 @@
             </header>
             <div class="page__content">
                 <!-- main content-->
-                <div id="retirement-planning">
+                <form class="js-planning-form" id="retirement-planning">
+                    <input class="js-saving-amount-per-month-ratio" type="hidden">
                     <section class="section-2">
                         <div class="container">
                             <h1 class="section-2__title">Kế hoạch hưu trí</h1>
@@ -156,35 +157,45 @@
                             <h2 class="section-3__title">KHẨU VỊ RỦI RO ĐẦU TƯ</h2>
                             <div class="section-3__content mt-20 mt-lg-100">
                                 <div class="row no-gutters">
-                                    <div class="col-md-4 mb-30">
-                                        <div class="risk-card">
+                                    <div class="col-md-6 col-lg-3 mb-30">
+                                        <label class="risk-card">
                                             <div class="risk-card__header">
-                                                <label class="radio-styled">
-                                                    <input class="radio-styled__input js-planning-input" type="radio" name="riskApetite" value="Bảo toàn" data-role="riskApetite"><span class="radio-styled__icon"></span>Bảo toàn
-                                                </label>
+                                                <div class="radio-styled">
+                                                    <input class="radio-styled__input js-planning-input" type="radio" name="riskApetite" value="Tiết kiệm" data-role="riskApetite"><span class="radio-styled__icon"></span><span>Tiết kiệm</span>
+                                                </div>
+                                            </div>
+                                            <div id="huu-tri-tiet-kiem"></div>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 mb-30">
+                                        <label class="risk-card">
+                                            <div class="risk-card__header">
+                                                <div class="radio-styled">
+                                                    <input class="radio-styled__input js-planning-input" type="radio" name="riskApetite" value="Bảo toàn" data-role="riskApetite"><span class="radio-styled__icon"></span><span>Bảo toàn</span>
+                                                </div>
                                             </div>
                                             <div id="huu-tri-bao-toan"></div>
-                                        </div>
+                                        </label>
                                     </div>
-                                    <div class="col-md-4 mb-30">
-                                        <div class="risk-card">
+                                    <div class="col-md-6 col-lg-3 mb-30">
+                                        <label class="risk-card">
                                             <div class="risk-card__header">
-                                                <label class="radio-styled">
-                                                    <input class="radio-styled__input js-planning-input" type="radio" name="riskApetite" value="Cân bằng" data-role="riskApetite"><span class="radio-styled__icon"></span>Cân bằng
-                                                </label>
+                                                <div class="radio-styled">
+                                                    <input class="radio-styled__input js-planning-input" type="radio" name="riskApetite" value="Cân bằng" data-role="riskApetite"><span class="radio-styled__icon"></span><span>Cân bằng</span>
+                                                </div>
                                             </div>
                                             <div id="huu-tri-can-bang"></div>
-                                        </div>
+                                        </label>
                                     </div>
-                                    <div class="col-md-4 mb-30">
-                                        <div class="risk-card">
+                                    <div class="col-md-6 col-lg-3 mb-30">
+                                        <label class="risk-card">
                                             <div class="risk-card__header">
-                                                <label class="radio-styled">
-                                                    <input class="radio-styled__input js-planning-input" type="radio" name="riskApetite" value="Tăng trưởng" data-role="riskApetite"><span class="radio-styled__icon"></span>Tăng trưởng
-                                                </label>
+                                                <div class="radio-styled">
+                                                    <input class="radio-styled__input js-planning-input" type="radio" name="riskApetite" value="Tăng trưởng" data-role="riskApetite"><span class="radio-styled__icon"></span><span>Tăng trưởng</span>
+                                                </div>
                                             </div>
                                             <div id="huu-tri-tang-truong"></div>
-                                        </div>
+                                        </label>
                                     </div>
                                 </div>
                                 <div class="legends legends--center">
@@ -256,7 +267,7 @@
                                             </div>
                                             <div>
                                                 Tương ứng
-                                                <span class="text-danger font-weight-bold">12</span>% Thu nhập hàng tháng.
+                                                <span class="text-danger font-weight-bold">2.4</span>% Thu nhập hàng tháng.
                                             </div>
                                             <div>
                                                 Với số vốn đầu tư ban đầu là
@@ -266,10 +277,24 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="adjust-btns"><a class="adjust-btns__btn adjust-btns__btn--block js-planning-submit" href="#!">Thực hiện</a><a class="adjust-btns__btn mr-10" href="javascript:void(0);"><i class="fa fa-bookmark"></i>Lưu</a><a class="adjust-btns__btn" href="javascript:void(0);"><i class="fa fa-share-alt"></i>Chia sẻ</a></div>
+                                <div class="adjust-btns"><a class="adjust-btns__btn js-planning-submit" href="javascript:void(0);"><i class="fa fa-bookmark"></i>Tư vấn</a><a class="adjust-btns__btn" href="javascript:void(0);"><i class="fa fa-share-alt"></i>Chia sẻ</a></div>
                             </div>
                         </div>
                     </section>
+                </form>
+                <div class="save-action modal fade" tabindex="-1" data-delay="10">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <form class="modal-body" id="form-popup">
+                                <button class="save-action__close" data-dismiss="modal">X</button>
+                                <div class="save-action__frame"><img src="./images/icon-envelope-2.png" alt="icon-envelope-2" /></div>
+                                <div class="save-action__label">Bạn có muốn lưu action hiện tại?</div>
+                                <div class="popup__footer">
+                                    <button class="save-action__btn js-save-action" type="button">Lưu action</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- footer-->
