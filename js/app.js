@@ -547,8 +547,6 @@ const Retirement = function () {
       data: expenses
     }];
 
-    console.log(JSON.stringify(series));
-
     showRetirementPlanningChart(series, this.currentAge);
   };
 
@@ -586,6 +584,12 @@ $(function () {
 
     if (role === "riskApetite") {
       Retirement[role] = value;
+
+      Retirement.calcResult();
+
+      $("html, body").animate({
+        scrollTop: $(".js-planning-scroll-to").offset().top
+      }, 800);
       return;
     }
 
@@ -598,16 +602,7 @@ $(function () {
 
   $(".js-planning-submit").on("click", function (e) {
     e.preventDefault();
-
-    Retirement.calcResult();
-
-    $("html, body").animate({
-      scrollTop: $(".js-planning-scroll-to").offset().top
-    }, 800);
-
-    setTimeout(function () {
-      $(".save-action").modal("show");
-    }, 1000);
+    $(".save-action").modal("show");
   });
 
   showRetirementPlanningChart();
@@ -834,6 +829,12 @@ $(function () {
     if (role === "riskApetite") {
       Investment[role] = value;
       Investment.updateRiskApetiteRatio();
+
+      Investment.calcResult();
+
+      $("html, body").animate({
+        scrollTop: $(".js-planning-scroll-to").offset().top
+      }, 800);
     } else {
       Investment[role] = parseInt(value);
     }
@@ -841,16 +842,7 @@ $(function () {
 
   $(".js-planning-submit").on("click", function (e) {
     e.preventDefault();
-
-    Investment.calcResult();
-
-    $("html, body").animate({
-      scrollTop: $(".js-planning-scroll-to").offset().top
-    }, 800);
-
-    setTimeout(function () {
-      $(".save-action").modal("show");
-    }, 1000);
+    $(".save-action").modal("show");
   });
 
   showInvestmentPlanningChart();
@@ -1022,20 +1014,18 @@ $(function () {
     let role = $(this).data("role");
 
     Saving[role] = parseInt(value);
-  });
-
-  $(".js-planning-submit").on("click", function (e) {
-    e.preventDefault();
 
     Saving.calcResult();
 
     $("html, body").animate({
       scrollTop: $(".js-planning-scroll-to").offset().top
     }, 800);
+  });
 
-    setTimeout(function () {
-      $(".save-action").modal("show");
-    }, 1000);
+  $(".js-planning-submit").on("click", function (e) {
+    e.preventDefault();
+
+    $(".save-action").modal("show");
   });
 
   showSavingPlanningChart();
@@ -1270,15 +1260,7 @@ $(function () {
   $(".js-planning-submit").on("click", function (e) {
     e.preventDefault();
 
-    PersonalFinancial.calcResult();
-
-    $("html, body").animate({
-      scrollTop: $(".js-planning-scroll-to").offset().top
-    }, 800);
-
-    setTimeout(function () {
-      $(".save-action").modal("show");
-    }, 1000);
+    $(".save-action").modal("show");
   });
 
   $(".js-planning-calc").on("click", function (e) {
