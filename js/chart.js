@@ -36,9 +36,11 @@ $(function () {
       pie: {
         allowPointSelect: true,
         cursor: "pointer",
+        size: "60%",
         dataLabels: {
           enabled: true,
           format: "{point.percentage:.1f} %",
+          distance: 10,
           style: {
             fontSize: "12px",
             fontWeight: "700",
@@ -97,9 +99,11 @@ $(function () {
       pie: {
         allowPointSelect: true,
         cursor: "pointer",
+        size: "60%",
         dataLabels: {
           enabled: true,
           format: "{point.percentage:.1f} %",
+          distance: 10,
           style: {
             fontSize: "12px",
             fontWeight: "700",
@@ -158,9 +162,11 @@ $(function () {
       pie: {
         allowPointSelect: true,
         cursor: "pointer",
+        size: "60%",
         dataLabels: {
           enabled: true,
           format: "{point.percentage:.1f} %",
+          distance: 10,
           style: {
             fontSize: "12px",
             fontWeight: "700",
@@ -219,9 +225,11 @@ $(function () {
       pie: {
         allowPointSelect: true,
         cursor: "pointer",
+        size: "60%",
         dataLabels: {
           enabled: true,
           format: "{point.percentage:.1f} %",
+          distance: 10,
           style: {
             fontSize: "12px",
             fontWeight: "700",
@@ -280,9 +288,11 @@ $(function () {
       pie: {
         allowPointSelect: true,
         cursor: "pointer",
+        size: "60%",
         dataLabels: {
           enabled: true,
           format: "{point.percentage:.1f} %",
+          distance: 10,
           style: {
             fontSize: "12px",
             fontWeight: "700",
@@ -341,9 +351,11 @@ $(function () {
       pie: {
         allowPointSelect: true,
         cursor: "pointer",
+        size: "60%",
         dataLabels: {
           enabled: true,
           format: "{point.percentage:.1f} %",
+          distance: 10,
           style: {
             fontSize: "12px",
             fontWeight: "700",
@@ -402,9 +414,11 @@ $(function () {
       pie: {
         allowPointSelect: true,
         cursor: "pointer",
+        size: "60%",
         dataLabels: {
           enabled: true,
           format: "{point.percentage:.1f} %",
+          distance: 10,
           style: {
             fontSize: "12px",
             fontWeight: "700",

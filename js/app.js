@@ -585,8 +585,6 @@ $(function () {
     if (role === "riskApetite") {
       Retirement[role] = value;
 
-      Retirement.calcResult();
-
       $("html, body").animate({
         scrollTop: $(".js-planning-scroll-to").offset().top
       }, 800);
@@ -598,6 +596,8 @@ $(function () {
     if (role === "currentAge" || role === "retirementAge") {
       Retirement.updateInterestYears();
     }
+
+    Retirement.calcResult();
   });
 
   $(".js-planning-submit").on("click", function (e) {
@@ -830,14 +830,14 @@ $(function () {
       Investment[role] = value;
       Investment.updateRiskApetiteRatio();
 
-      Investment.calcResult();
-
       $("html, body").animate({
         scrollTop: $(".js-planning-scroll-to").offset().top
       }, 800);
     } else {
       Investment[role] = parseInt(value);
     }
+
+    Investment.calcResult();
   });
 
   $(".js-planning-submit").on("click", function (e) {
