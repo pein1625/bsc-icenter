@@ -1,12 +1,10 @@
-var legendFontSize = "14px";
 var legendFontWeight = "700";
 var pieLabelFontSize = "10px";
 var areaLabelFontSize = "10px";
 
 if ($(window).width() > 1200) {
-  legendFontSize = "20px";
   legendFontWeight = "400";
-  areaLabelFontSize = "18px";
+  areaLabelFontSize = "16px";
 }
 
 // Khẩu vị rủi do hưu trí -- tiết kiệm
@@ -19,7 +17,7 @@ $(function () {
       plotBorderWidth: null,
       plotShadow: false,
       type: "pie",
-      height: "90%"
+      height: "70%"
     },
     title: {
       text: ""
@@ -82,7 +80,7 @@ $(function () {
       plotBorderWidth: null,
       plotShadow: false,
       type: "pie",
-      height: "90%"
+      height: "70%"
     },
     title: {
       text: ""
@@ -145,7 +143,7 @@ $(function () {
       plotBorderWidth: null,
       plotShadow: false,
       type: "pie",
-      height: "90%"
+      height: "70%"
     },
     title: {
       text: ""
@@ -208,7 +206,7 @@ $(function () {
       plotBorderWidth: null,
       plotShadow: false,
       type: "pie",
-      height: "90%"
+      height: "70%"
     },
     title: {
       text: ""
@@ -271,7 +269,7 @@ $(function () {
       plotBorderWidth: null,
       plotShadow: false,
       type: "pie",
-      height: "90%"
+      height: "70%"
     },
     title: {
       text: ""
@@ -334,7 +332,7 @@ $(function () {
       plotBorderWidth: null,
       plotShadow: false,
       type: "pie",
-      height: "90%"
+      height: "70%"
     },
     title: {
       text: ""
@@ -397,7 +395,7 @@ $(function () {
       plotBorderWidth: null,
       plotShadow: false,
       type: "pie",
-      height: "90%"
+      height: "70%"
     },
     title: {
       text: ""
