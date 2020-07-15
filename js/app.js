@@ -561,7 +561,7 @@ const Retirement = function () {
     this.savingAmountPerMonth = savingAmountPerMonth;
     this.savingAmountPerMonthRatio = Math.round(savingAmountPerMonth * 10000 / this.monthlyIncome) / 100;
 
-    $(".js-interest-rate").val(interestRate + " %");
+    $(".js-saving-amount-per-month-ratio-2").val(this.savingAmountPerMonthRatio + " %");
     $(".js-saving-amount").val(savingAmount.toLocaleString("en"));
     $(".js-saving-amount-per-month").val(savingAmountPerMonth.toLocaleString("en"));
     $(".js-saving-amount-per-month-ratio").val(this.savingAmountPerMonthRatio);
