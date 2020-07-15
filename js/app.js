@@ -588,10 +588,9 @@ $(function () {
       $("html, body").animate({
         scrollTop: $(".js-planning-scroll-to").offset().top
       }, 800);
-      return;
+    } else {
+      Retirement[role] = parseInt(value);
     }
-
-    Retirement[role] = parseInt(value);
 
     if (role === "currentAge" || role === "retirementAge") {
       Retirement.updateInterestYears();
@@ -725,7 +724,7 @@ const Investment = function () {
 
   // Lãi suất dự kiến
   InvestmentClass.prototype.getInterestRate = function () {
-    switch (this.ristApetite) {
+    switch (this.riskApetite) {
       case "Bảo toàn":
         return 10;
         break;
@@ -830,14 +829,14 @@ $(function () {
       Investment[role] = value;
       Investment.updateRiskApetiteRatio();
 
+      Investment.calcResult();
+
       $("html, body").animate({
         scrollTop: $(".js-planning-scroll-to").offset().top
       }, 800);
     } else {
       Investment[role] = parseInt(value);
     }
-
-    Investment.calcResult();
   });
 
   $(".js-planning-submit").on("click", function (e) {
