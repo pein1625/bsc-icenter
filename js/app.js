@@ -415,6 +415,21 @@ $(function () {
   });
 });
 
+$(function () {
+  $(".js-future-goal").on("change", function () {
+    let val = $(this).val();
+    $(".js-future-goal-title").html(val);
+
+    $scrollTo = $(".js-planning-scroll-to");
+
+    if (!$scrollTo.length) return;
+
+    $("html, body").animate({
+      scrollTop: $scrollTo.offset().top
+    }, 600);
+  });
+});
+
 // Kế hoạch hưu trí
 const Retirement = function () {
   const RetirementClass = function () {};
