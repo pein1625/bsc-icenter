@@ -493,7 +493,7 @@ const Retirement = function () {
 <div class="adjust-result__body bg-light">
   <div class="adjust-result__label">KẾT QUẢ :</div>
   <div class="adjust-result__content">
-    <div>Để có mức chi tiêu là <span class="text-danger font-weight-bold">${this.monthlyExpenses}</span> triệu một tháng trong <span class="text-danger font-weight-bold">${this.investmentYears}</span> năm sau khi nghỉ hưu</div>
+    <div>Để có mức chi tiêu là <span class="text-danger font-weight-bold">${this.monthlyExpenses}</span> triệu một tháng trong <span class="text-danger font-weight-bold">${this.retirementYears}</span> năm sau khi nghỉ hưu</div>
     <div>Với lãi suất đầu tư dự kiến là <span class="text-danger font-weight-bold">${this.interestRate}</span> % một năm</div>
     <div>Thì số tiền anh / chị cần tích lũy hàng tháng là <span class="text-danger font-weight-bold">${this.savingAmountPerMonth}</span> triệu,</div>
     <div>Tương ứng <span class="text-danger font-weight-bold">${this.savingAmountPerMonthRatio}</span>% Thu nhập hàng tháng.</div>
