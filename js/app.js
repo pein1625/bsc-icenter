@@ -362,8 +362,12 @@ $(function () {
   });
 });
 
-$(".grid").masonry({
-  itemSelector: ".grid__col"
+$(function () {
+  $(".grid").masonry({
+    itemSelector: ".grid__col"
+  });
+
+  calcGridMoreBtnHeight();
 });
 
 $(function () {
@@ -429,6 +433,46 @@ $(function () {
     }, 600);
   });
 });
+
+function calcGridMoreBtnHeight() {
+  let $grid = $(".grid");
+  let gridHeight = $grid.outerHeight();
+  let $columns = $grid.find(".grid__col");
+  let offset = 0;
+  let height = 0;
+
+  $columns.each(function () {
+    let columnOffset = $(this).offset().top;
+    let columnHeight = $(this).outerHeight();
+
+    if (columnOffset > offset) {
+      offset = columnOffset;
+      height = columnHeight;
+    }
+  });
+
+  $(".news-grid__more").css("height", height);
+}
+
+function calcGridMoreBtnHeight() {
+  let $grid = $(".grid");
+  let gridHeight = $grid.outerHeight();
+  let $columns = $grid.find(".grid__col");
+  let offset = 0;
+  let height = 0;
+
+  $columns.each(function () {
+    let columnOffset = $(this).offset().top;
+    let columnHeight = $(this).outerHeight();
+
+    if (columnOffset > offset) {
+      offset = columnOffset;
+      height = columnHeight;
+    }
+  });
+
+  $(".news-grid__more").css("height", height);
+}
 
 // Kế hoạch hưu trí
 const Retirement = function () {
