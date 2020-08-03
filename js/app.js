@@ -471,7 +471,7 @@ function calcGridMoreBtnHeight() {
     }
   });
 
-  $(".news-grid__more").css("height", height);
+  $grid.css("marginBottom", -height);
 }
 
 // Kế hoạch hưu trí
