@@ -368,6 +368,22 @@ $(function () {
   });
 
   calcGridMoreBtnHeight();
+
+  setTimeout(function () {
+    $(".grid").masonry({
+      itemSelector: ".grid__col"
+    });
+
+    calcGridMoreBtnHeight();
+  }, 600);
+
+  setTimeout(function () {
+    $(".grid").masonry({
+      itemSelector: ".grid__col"
+    });
+
+    calcGridMoreBtnHeight();
+  }, 1200);
 });
 
 $(function () {
